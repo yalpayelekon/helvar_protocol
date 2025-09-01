@@ -8,7 +8,6 @@ import 'device_types.dart';
 class DeviceCatalog {
   static const Map<int, DeviceType> deviceTypeCatalog = {
     0x1: DeviceType.output,
-    0x101: DeviceType.emergency,
     0x201: DeviceType.output,
     0x208: DeviceType.output,
     0x301: DeviceType.output,
@@ -265,15 +264,10 @@ class DeviceCatalog {
 
   /// Returns the recommended icon asset path for a device type code.
   static String iconPathForCode(int code) {
-    final deviceType = typeForCode(code);
     final hexId = code.toRadixString(16).toLowerCase();
 
     final mapped = _iconCatalog[hexId];
     if (mapped != null) return mapped;
-
-    if (deviceType == DeviceType.emergency) {
-      return 'assets/icons/outputemergency.png';
-    }
 
     if (isDeviceMultisensor(code)) {
       return 'assets/icons/sensor.png';

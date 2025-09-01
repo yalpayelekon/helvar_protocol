@@ -1,4 +1,4 @@
-import 'package:simulator/utils/core/path_utils.dart';
+import '../../utils/core/path_utils.dart';
 
 class HelvarGroup {
   static int defaultPowerPollingMinutes = 15;

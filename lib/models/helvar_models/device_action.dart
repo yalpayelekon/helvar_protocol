@@ -4,10 +4,6 @@ enum DeviceAction {
   directLevel,
   directProportion,
   modifyProportion,
-  emergencyFunctionTest,
-  emergencyDurationTest,
-  stopEmergencyTest,
-  resetEmergencyBattery,
 }
 
 extension DeviceActionExtension on DeviceAction {
@@ -23,14 +19,6 @@ extension DeviceActionExtension on DeviceAction {
         return 'Direct Proportion';
       case DeviceAction.modifyProportion:
         return 'Modify Proportion';
-      case DeviceAction.emergencyFunctionTest:
-        return 'Emergency Function Test';
-      case DeviceAction.emergencyDurationTest:
-        return 'Emergency Duration Test';
-      case DeviceAction.stopEmergencyTest:
-        return 'Stop Emergency Test';
-      case DeviceAction.resetEmergencyBattery:
-        return 'Reset Emergency Battery';
     }
   }
 }

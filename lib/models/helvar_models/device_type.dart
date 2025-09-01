@@ -1,6 +1,6 @@
 import 'helvar_device.dart';
 
-enum DeviceType { output, input, emergency }
+enum DeviceType { output, input }
 
 extension DeviceTypeExtension on DeviceType {
   String get string => name;
@@ -9,8 +9,6 @@ extension DeviceTypeExtension on DeviceType {
     switch (value.toLowerCase()) {
       case 'input':
         return DeviceType.input;
-      case 'emergency':
-        return DeviceType.emergency;
       default:
         return DeviceType.output;
     }

@@ -1,5 +1,4 @@
-import 'package:flutter/foundation.dart';
-import 'package:simulator/utils/core/path_utils.dart';
+import '../../utils/core/path_utils.dart';
 import 'helvar_device.dart';
 import 'device_type.dart';
 
@@ -9,7 +8,6 @@ class HelvarRouter {
   String description;
   List<String>? deviceAddresses;
   bool isConnected;
-  List<String> alarmGroupIds;
 
   int version;
   int clusterId;
@@ -38,8 +36,7 @@ class HelvarRouter {
     this.deviceType,
     this.deviceStateCode,
     List<HelvarDevice>? devices,
-  }) : alarmGroupIds = alarmGroupIds ?? [],
-       devices = devices ?? [] {
+  }) : devices = devices ?? [] {
     if (ipAddress.contains('.')) {
       final ipParts = ipAddress.split('.');
       if (ipParts.length == 4) {
@@ -106,91 +103,5 @@ class HelvarRouter {
 
   List<HelvarDevice> getDevicesBySubnet(int subnet) {
     return devicesBySubnet[subnet] ?? [];
-  }
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is HelvarRouter &&
-          runtimeType == other.runtimeType &&
-          description == other.description &&
-          address == other.address &&
-          listEquals(alarmGroupIds, other.alarmGroupIds);
-
-  @override
-  int get hashCode =>
-      Object.hash(description, address, Object.hashAll(alarmGroupIds));
-
-  factory HelvarRouter.fromJson(Map<String, dynamic> json) {
-    return HelvarRouter(
-      address: json['address'] as String,
-      ipAddress: json['ipAddress'] as String? ?? '',
-      description: json['description'] as String? ?? '',
-      isConnected: json['isNormal'] as bool? ?? true,
-      alarmGroupIds:
-          (json['alarmGroupIds'] as List?)?.cast<String>() ??
-          (json['alarmGroupId'] != null ? [json['alarmGroupId']] : []),
-      version: json['version'] as int? ?? 2,
-      clusterId: json['clusterId'] as int? ?? 1,
-      clusterMemberId: json['clusterMemberId'] as int? ?? 1,
-      deviceTypeCode: json['deviceTypeCode'] as int?,
-      deviceType: json['deviceType'] as String?,
-      deviceState: json['deviceState'] as String?,
-      deviceStateCode: json['deviceStateCode'] as int?,
-      devices:
-          (json['devices'] as List?)
-              ?.map(
-                (deviceJson) => HelvarDevice.fromJson(
-                  Map<String, dynamic>.from(deviceJson as Map),
-                ),
-              )
-              .whereType<HelvarDevice>()
-              .toList() ??
-          [],
-    );
-  }
-
-  Map<String, dynamic> toJson() {
-    final subnetsJson = <String, List<Map<String, dynamic>>>{};
-    devicesBySubnet.forEach((subnet, subnetDevices) {
-      subnetsJson['subnet$subnet'] = subnetDevices
-          .map((device) => device.toJson())
-          .toList();
-    });
-
-    return {
-      'address': address,
-      'ipAddress': ipAddress,
-      'description': description,
-      'isNormal': isConnected,
-      'alarmGroupIds': alarmGroupIds,
-      'version': version,
-      'clusterId': clusterId,
-      'clusterMemberId': clusterMemberId,
-      'deviceTypeCode': deviceTypeCode,
-      'deviceType': deviceType,
-      'deviceState': deviceState,
-      'deviceStateCode': deviceStateCode,
-      'devicesBySubnet': subnetsJson,
-      'devices': devices.map((device) => device.toJson()).toList(),
-    };
-  }
-
-  HelvarRouter copyWith({List<String>? alarmGroupIds}) {
-    return HelvarRouter(
-      address: address,
-      ipAddress: ipAddress,
-      version: version,
-      description: description,
-      isConnected: isConnected,
-      alarmGroupIds: alarmGroupIds ?? List<String>.from(this.alarmGroupIds),
-      clusterId: clusterId,
-      clusterMemberId: clusterMemberId,
-      deviceTypeCode: deviceTypeCode,
-      deviceType: deviceType,
-      deviceState: deviceState,
-      deviceStateCode: deviceStateCode,
-      devices: devices,
-    );
   }
 }

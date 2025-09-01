@@ -1,9 +1,6 @@
-import 'package:simulator/utils/core/path_utils.dart';
-import 'package:simulator/utils/device_utils.dart';
-
+import '../../utils/core/path_utils.dart';
 import 'output_point.dart';
 import '../../protocol/query_commands.dart';
-import 'device_action.dart';
 import 'helvar_device.dart';
 import 'device_point_status.dart';
 
@@ -26,7 +23,6 @@ class HelvarDriverOutputDevice extends HelvarDevice {
     super.iconPath,
     super.hexId,
     super.addressingScheme,
-    super.emergency,
     super.blockId,
     super.sceneId,
     super.out,
@@ -38,7 +34,6 @@ class HelvarDriverOutputDevice extends HelvarDevice {
     super.alarmGroupIds,
     super.sensorInfo,
     super.subDeviceIndex,
-    super.lastMessageTime,
     this.missing = false,
     this.faulty = false,
     this.level,
@@ -102,18 +97,15 @@ class HelvarDriverOutputDevice extends HelvarDevice {
       iconPath: iconPath ?? this.iconPath,
       hexId: hexId ?? this.hexId,
       addressingScheme: addressingScheme ?? this.addressingScheme,
-      emergency: emergency ?? this.emergency,
       blockId: blockId ?? this.blockId,
       sceneId: sceneId ?? this.sceneId,
       out: out ?? this.out,
       helvarType: helvarType ?? this.helvarType,
       subDeviceIndex: subDeviceIndex ?? this.subDeviceIndex,
-      lastMessageTime: lastMessageTime ?? this.lastMessageTime,
       deviceTypeCode: deviceTypeCode ?? this.deviceTypeCode,
       deviceStateCode: deviceStateCode ?? this.deviceStateCode,
       isButtonDevice: isButtonDevice ?? this.isButtonDevice,
       isMultisensor: isMultisensor ?? this.isMultisensor,
-      alarmGroupIds: alarmGroupIds ?? List<String>.from(this.alarmGroupIds),
       sensorInfo: sensorInfo ?? Map<String, dynamic>.from(this.sensorInfo),
       missing: missing ?? this.missing,
       faulty: faulty ?? this.faulty,
@@ -122,11 +114,6 @@ class HelvarDriverOutputDevice extends HelvarDevice {
       powerConsumption: powerConsumption ?? this.powerConsumption,
       outputPoints: outputPoints ?? List<OutputPoint>.from(this.outputPoints),
     );
-  }
-
-  @override
-  void recallScene(String sceneParams) {
-    out = handleRecallScene(sceneParams);
   }
 
   String? directLevel(String levelParams) {
@@ -243,52 +230,8 @@ class HelvarDriverOutputDevice extends HelvarDevice {
     }
   }
 
-  @override
-  void started() {
-    generateOutputPoints();
-  }
-
   String getName() {
     return description.isNotEmpty ? description : "Device_$deviceId";
-  }
-
-  @override
-  void stopped() {}
-
-  @override
-  String? performAction(DeviceAction action, dynamic value) {
-    switch (action) {
-      case DeviceAction.clearResult:
-        clearResult();
-        break;
-      case DeviceAction.recallScene:
-        if (value is int) {
-          recallScene("1,$value");
-        }
-        break;
-      case DeviceAction.directLevel:
-        if (value is String) {
-          return directLevel(value);
-        } else if (value is num) {
-          return directLevel('$value');
-        }
-        break;
-      case DeviceAction.directProportion:
-        if (value is String) {
-          return directProportion(value);
-        } else if (value is num) {
-          return directProportion('$value');
-        }
-        break;
-      case DeviceAction.modifyProportion:
-        if (value is int) {
-          modifyProportion("$value");
-        }
-        break;
-      default:
-        print("Action $action not supported for output device");
-    }
-    return null;
   }
 
   void generateOutputPoints() {
@@ -334,16 +277,5 @@ class HelvarDriverOutputDevice extends HelvarDevice {
     } catch (e) {
       return null;
     }
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    final json = super.toJson();
-    json['missing'] = missing;
-    json['faulty'] = faulty;
-    json['level'] = level;
-    json['proportion'] = proportion;
-    json['outputPoints'] = outputPoints.map((point) => point.toJson()).toList();
-    return json;
   }
 }

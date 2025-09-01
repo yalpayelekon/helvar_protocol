@@ -4,10 +4,6 @@ enum GroupAction {
   directLevel,
   directProportion,
   modifyProportion,
-  emergencyFunctionTest,
-  emergencyDurationTest,
-  stopEmergencyTest,
-  resetEmergencyBatteryTotalLampTime,
   refreshGroupProperties,
 }
 
@@ -24,14 +20,6 @@ extension GroupActionExtension on GroupAction {
         return 'Direct Proportion';
       case GroupAction.modifyProportion:
         return 'Modify Proportion';
-      case GroupAction.emergencyFunctionTest:
-        return 'Emergency Function Test';
-      case GroupAction.emergencyDurationTest:
-        return 'Emergency Duration Test';
-      case GroupAction.stopEmergencyTest:
-        return 'Stop Emergency Test';
-      case GroupAction.resetEmergencyBatteryTotalLampTime:
-        return 'Reset Emergency Battery Total Lamp Time';
       case GroupAction.refreshGroupProperties:
         return 'Refresh Group Properties';
     }

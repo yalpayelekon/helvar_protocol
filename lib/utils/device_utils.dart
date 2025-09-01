@@ -1,12 +1,8 @@
-import 'package:simulator/utils/core/path_utils.dart';
-import '../../models/helvar_models/device_point_status.dart';
-import '../../models/helvar_models/input_point.dart';
+import 'package:helvar_protocol/models/helvar_models/device_point_status.dart';
 
-/// Generate standard input points for a button device.
-///
-/// [buttonCount] controls the number of button points created. When
-/// [includeIr] is true, seven IR points (ids 101–107) are added
-/// regardless of the button count.
+import '../models/helvar_models/input_point.dart';
+import 'core/path_utils.dart';
+
 List<InputPoint> generateStandardButtonPoints(
   String deviceName, {
   int buttonCount = 7,
