@@ -1,0 +1,18 @@
+enum PathSegment {
+  project,
+  settings,
+  config,
+  wiresheets,
+  files,
+  graphics,
+  workgroups,
+  groups,
+  routers,
+  alarm,
+  subnet,
+  device,
+  devices,
+  inputpoints,
+  outputpoints,
+  projectSettings,
+}
