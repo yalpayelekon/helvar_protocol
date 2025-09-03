@@ -1,0 +1,2071 @@
+HELVARNET PROTOCOL
+Connection
+To establish a TCP connection and therefore communicate with the router, the third-party
+device is required to connect to listener port number 50000. When using the UDP protocol, the
+third-party device is required to send a message to destination port number 50001 in the
+router.
+Routing entries of the following type allow generic data transmission over Ethernet:
+ ETHERNET TRANSMIT triggered by a group / block / scene recall: This causes
+transmission of a generic string, from a single router .
+When the entry is triggered, a connection to the third party device is instigated from the router.
+The IP address and port to which the connection to the third-party device is made is determined
+from the routing entry’s configuration:
+ To send TCP messages from the router to the third-party device, the router connects to a
+listener port provided in the third-party device. It is recommended that this listener port is
+in the range of 49152 to 65535.
+ To send UDP messages from the router to the third-party device, it is recommended that
+the destination port in the third-party device is in the range of 49152 to 65535.
+ Additionally, the IP address of the router that is responsible for the transmission of the
+generic string also needs to be configured.
+
+System Access and Message Routing
+Messages from the third-party device can be targeted at any router in the system.
+If access has not been granted or has been blocked to a particular router, then communications can still
+be achieved to that router via any other router in the system, provided that you have the IP address of
+another router and the third-party device is allowed access to it.
+If a query message needs to be sent to a router for which access has not been granted, then the query
+message can be sent to any of the alternative routers, following this the response to the query – the
+query reply message – will be returned by the router to which the query was originally sent.
+Message Format
+Any message sent to, or received from, a router can be in either ASCII or raw binary form (see
+Command Format for more information). Messages must not exceed the maximum length of
+1500 bytes. The format of the data contained within messages is defined by the protocol. A
+query reply message from the router will be in the same format as the query command message
+sent i.e. if a query message is sent in ASCII form then the reply will also be in ASCII. Throughout 
+this document, ASCII format examples will be used. Push Messages are internally generated
+messages from routers to external HelvarNet clients. Device Types in Helvar: Routers (905
+Digidim Router, 910 Digidim Router, 920 Imagine Router, Ballasts, Button Panels (Modular Control
+Panels), Converters, DALI Controller, Dimmers, HID, Input Units, IR Receiver Panel (170), LED Drivers,
+Remote Control Handset, Rotary Switch, Sensors, Sliders, Switching Units
+Network Topology
+A topology is a description of the arrangement of the various elements (nodes, connecting lines,
+etc.) of a communication network.
+There are two types of network topology that can be applied to a router :
+ single cluster
+ multicluster
+The following sections describe what these topologies are and which one you should use.
+
+Single cluster and multicluster
+A cluster is a collection of routers that work together or have some common locational element.
+For example, in a large building with several floors, all routers on a single floor could belong to
+the same cluster; routers on another floor could belong to another cluster; and so on.
+Note: A cluster could also map to a logical network strategy. For example, on a layer 3 network, if routers
+are assigned on different IP subnets, clusters can be mapped directly on to those subnets. Clients are no
+longer part of the clustering system. They can be located anywhere on the network.
+We recommend that a single cluster should contain no more than 30 routers.
+Which topology type to use
+First, the type of topology depends on how many routers the system has:
+ Use single cluster for systems with no more than 30 routers.
+ Use multicluster for systems with 30 routers or more.
+Second, the type of topology depends on whether communications between the routers is
+confined to a logical IP subnet or spans multiple IP subnets.
+ If the IP network is a layer 2 network, the router system can constitute a single cluster or multiple clusters.
+ If the IP network is a layer 3 network and the router communications are confined to a logical IP subnet, the router system can be made up of a single cluster or multiple clusters.
+ If the IP network is a layer 3 network and the router communications are required to traverse across logical IP subnets, the routers system will contain multiple clusters.
+
+Same IP subnet
+Members of a cluster must reside on the same IP subnet as the other members of the same
+cluster.
+Defining a cluster and its members
+The cluster is determined by allocating a portion of the IP to be the cluster’s identifier. This
+portion, which must lead from the left, is determined by the accompanying setting called ‘cluster
+mask’.
+This mask is very similar to the subnet mask and follows the same IP masking rules. The cluster
+member is determined by the part of the IP address that is masked out by the cluster mask.
+Examples:
+ A router with an IP address of 192.168.1.1 with a cluster mask of 255.255.255.0 has a
+cluster identifier of 192.168.1.0 and a cluster member identifier of 0.0.0.1.
+ A router with an IP address of 172.28.228.10 with a cluster mask of 255.255.255.0 has a
+cluster identifier of 172.28.228.0 and a cluster member identifier of 0.0.0.1.
+ A router with an IP address of 172.28.228.10 with a cluster mask of 255.255.0.0 has a
+cluster identifier of 172.28.0.0 and a cluster member identifier of 0.0.228.10.
+ A router with an IP address of 10.254.0.1 with a cluster mask of 255.255.255.0 has a
+cluster identifier of 10.254.0.0 and a cluster member identifier of 0.0.0.1.
+ A router with an IP address of 10.254.0.1 with a cluster mask of 255.255.0.0 has a cluster
+identifier of 10.254.0.0 and a cluster member identifier of 0.0.0.1.
+ A router with an IP address of 10.254.0.1 with a cluster mask of 255.0.0.0 has a cluster
+identifier of 10.0.0.0 and a cluster member identifier of 0.254.0.1.
+Note: The default cluster mask of 255.255.255.0 will suffice for most network addressing strategies
+
+GENERAL CONTEXT INFORMATION FROM VARIOUS PARTS
+Workgroups
+Within the context of a lighting system , a Workgroup is a collection of routers that work together
+and communicate with each other. Every lighting system must contain at least one Workgroup.
+A lighting system is normally just a single Workgroup. However, on some sites there may be more
+than one Workgroup. For example, each building on a campus could be a separate Workgroup.
+Addresses
+An address is a number or sequence of numbers used to identify a router , subnet , device or
+subdevice in a lighting system . Each item has a unique address that is either defined automatically
+(by Designer or the router), or defined manually (by the user with Designer or at the physical
+device).
+Address Structure for Items
+Each address is made up of up to five numbers in the format:
+Cluster ID.Cluster Member ID.Subnet.Device.Subdevice
+Router Address Format 
+Routers have an address in the format of Cluster ID.Cluster Member ID
+Subnet Address Format
+Subnets have an address in the format of Cluster ID.Cluster Member ID.Subnet
+Device Address Format
+Devices have an address in the format of Cluster ID.Cluster Member ID.Subnet.Device
+Subdevice Address Format
+Subdevices have an address in the format of Cluster ID.Cluster Member
+ID.Subnet.Device.Subdevice
+DALI Subnet
+A DALI subnet is a collection of DALI devices, all connected on one cable, which are connected
+to a router . Each router can support two DALI subnets.
+The DALI protocol is used to communicate between DALI devices on a DALI subnet. DALI
+device addresses are automatically set by the router system.
+Up to 64 devices can be connected to each DALI subnet
+
+SDIM Subnet
+An SDIM subnet allows the Imagine 920 Router to drive control gear such as the Imagine range
+of dimmers, relay units and ballast controllers, or Digidim loads with SDIM capability. The
+router has one SDIM subnet which can support up to 128 SDIM devices, within the limits of 252
+SDIM addresses. SDIM is an internal Helvar protocol used to communicate between SDIM
+devices (control gear) on an SDIM subnet. Unlike DALI devices, whose addresses are
+automatically set by the router system, SDIM addresses are set at the device by a DIL switch or
+menu selection. There can be one or more addresses, depending on how many channels the
+device has.
+DMX Subnet
+Note: Only the Imagine 920 Router has a DMX subnet connector and can therefore support one
+DMX subnet
+DMX (Dimmer MultipleX) is a communications protocol developed by USITT (United States
+Institute for Theatre Technology), commonly used to control stage lighting and effects.
+The standard is intended for lighting system and entertainment system designers who want to
+integrate systems of lighting equipment and accessories, including dimmers, with controllers
+made by different manufacturers.
+DMX Subnet Communication
+DMX512 is designed to carry repetitive control data from a single controller to one or more
+receivers. This protocol is intended to be used to control dimmers, other lighting devices and
+related non-hazardous effects equipment.
+Note: A DMX Lighting Control Console (or Lighting Desk) controls the levels of channels in
+the range from 0 to 255. When the DMX subnet is in DMX 'Out' operation, if you send a
+command to set a DMX channel to 100 % then the channel goes to 255 on the DMX device
+(all other levels are scaled proportionally). When in DMX 'In' operation, and you send a
+command to set a DMX channel to 100 %, the controlled SDIM channel goes to 100 %.
+DMX 'In'
+If the subnet is in this operation, then the SDIM and/or DALI devices are controlled channels
+(inputs) on their controlled SDIM and/or DALI subnets. These subnets can support up to 512
+channels in from one DMX source.
+DMX 'Out'
+If the subnet is in this operation, then the DMX devices on the subnet operate as loads (control
+gear ). This subnet can drive up to 512 DMX output channels.
+
+Scenes
+In its simplest sense, a scene is a set of levels. A scene can be assigned to a control panel button
+so that, when the button is pressed, the levels defined in the scene are set
+Discovery
+Before you configure the router ’s network settings or lighting settings, the following is necessary:
+ The client computer running Designer needs to be able to discover the routers.
+ The routers need to discover one another.
+This is achieved by the discovery mechanism, which involves the transmission of a discovery message.
+Discovery message
+The discovery message is transmitted via a UDP broadcast or UDP multicast. The ability to receive the
+message depends on the type of network on which the routers and client reside.
+ If the network is a layer 2 network, the client and all routers will receive the UDP broadcast
+message.
+ If the network is a layer 3 managed network, the UDP broadcast may not be sufficient for the
+client or all routers to receive the message. The reason is that UDP broadcasts are not always
+permitted to travel through managed switches due to concerns regarding network packet
+flooding. Therefore, the routers allow for the discovery message to be transmitted via a UDP
+multicast. The type of protocol used for transmitting the discovery message can be selected
+using the two properties ‘Broadcast Discovery Message’ and ‘Multicast Discovery Message’.
+These allow each type to be enabled or disable.
+Note: When testing whether the multicast discovery message works, it can be helpful to use both UDP
+broadcast and UDP broadcast messages. If you have to use multicast discovery messages, enable them
+leaving the broadcast method enabled until you are satisfied that it is working properly. One of both
+methods needs to be enabled at any one time, because the router will not allow both the broadcast and
+multicast methods to be disabled.
+Broadcast Discovery Address
+In certain cases, it may be appropriate to change the broadcast address. This is an advanced topic and
+should only be carried out by someone with a good understanding of IP networks and IP subnetting. It is
+recommended to leave the default setting of 255.255.255.255 as it is.
+Multicast Discovery Address
+If you decide to adopt the multicast discovery mechanism, your network administrator will advise on the
+correct settings to use. The address must be in the range from 224.0.0.0 to 239.255.255.255.
+
+Network Administration
+If the network is a layer 3 managed network, it will be administered by an IT professional. Therefore, it is
+important to work closely with the administrator to determine:
+ the course of action to take regarding the discovery mechanism; and
+ what the IP addressing strategy will be.
+In any case, the discovery message must be permitted to travel through the managed network
+unhindered
+Names and Conventions
+Router, Subnet and Device Names
+Every router , subnet , device and subdevice has a default name (the item name), followed by the
+item’s unique address.
+It can be useful to rename important items to indicate their location or function in the system.
+This helps you to organise the workgroup design. For example, if a router controls the lighting
+for a restaurant, renaming it to Restaurant makes its function more obvious.
+Names can be up to 43 characters long, and may contain any characters.
+Scene Names
+By default, each scene in a lighting system has a unique name, composed of the group to which
+it belongs and the scene block and scene number to which it relates. Scene names can be edited to
+make them easier for you to identify and remember their purpose in the lighting system. Names
+can be up to 43 characters long, and may contain any characters. See Rename a Scene.
+Naming Conventions
+A variety of naming conventions are used in the lighting design. These vary from simple
+numbering of devices to using codes that identify a component, its location, power, and so on. If
+you are working with a lighting design that has been provided to you, it makes sense to use the
+chosen convention.
+If you have the opportunity to choose a naming convention, we suggest you use an acronym or
+abbreviation for each item in the lighting system. For example, use the letter ‘D’ to indicate a
+Downlight, ‘P’ to indicate a Panel, and so on. By using such a code with a sequential numbered
+suffix for each item, you can identify items in a way that makes it easy to cross-reference your
+workgroup design with the various floor plans and specifications for the project.
+
+Command Table
+Commands can be sent in either ASCII (text) or raw format. In ASCII format, the commands are
+split into parameters and in raw format the commands are split into binary Words which contain
+the parameters.
+Each command contains:
+• a command number.
+• parameters that address devices or lighting operations.
+• parameters that are required to accompany the commands.
+ASCII Format
+The ASCII format requires that certain rules concerning special characters, parameter identifiers, and
+delimiters be adhered to. These rules are as follows:
+1. The ASCII string must begin with the command character '>' and end with the Terminator character ‘#’.
+2. Replies to queries begin with the character ‘?’ and the data concerning a query’s response is separated
+from the query string using the character ‘=’. Similarly, the whole query response string is terminated
+with the character ‘#’ that signals the end of the reply, or '$' that signals the end of a partial response.
+For example, a response that contains more data than the maximum message size would be split into 2
+responses. The first partial response would be terminated by '$', and the second partial response would
+be terminated by '#'.
+3. Error / Diagnostic messages begin with the character '!' and, again, end in ‘#'.
+4. Unless they are optional, all of the parameters required for the command must be included; otherwise
+the message is rejected and discarded.
+5. The ASCII parameters are not required to be ordered.
+6. The parameter identifiers are to be included as shown in the following table, i.e. all alphabetic
+identifiers should be in upper case.
+
+For example, in the command Recall Group 1234, Block 5, Scene 6, Fade Time 32 s, the string is
+sent as follows, including the delimiters and the start character ‘>’ and stop character ‘#’:
+>V:1,C:11,G:1234,B:5,S:6,F:3200#
+
+Configuration Commands
+201 - Store Scene (Group)
+Set the scene level for channels in the specified group. If the 'Force' flag is clear, channels with
+'ignore' already stored in the Scene Table are not affected.
+Command
+Command (201), Group (1..16383), Force Store (1=ON, 0=OFF) / Block (1..8) / Scene (1..16), Level (0..100)
+
+ASCII Example
+To store an output level of 75% as scene 5 in scene block 2, across group 17:
+>V:1,C:201,G:17,O:1,B:2,S:5,L:75#
+202 - Store Scene (Channel)
+Set the scene level for the channel.
+Special values for the L Parameter
+253: Last Level
+254: Ignore
+If the Force flag is clear and 'ignore' is already stored in the Scene Table for the channel, then
+the scene is not stored.
+Command
+Command (202), Cluster (1..253) / Router (1..254), Subnet (1..4) / Device (1..255), Force Store
+(1=ON, 0=OFF) / Block (1..8) / Scene (1..16), Level (0..100)
+ASCII Example
+To store an output level of 75% as scene 5 in scene block 2, at channel 2.2.1.1:
+>V:1,C:202,@2.2.1.1,O:1,B:2,S:5,L:75#
+
+203 - Store As Scene (Group)
+Stores the current levels of channels in the group into the specified block / scene. If the 'Force'
+flag is clear, channels with 'ignore' already stored in the Scene Table are not affected.
+Command
+Command (203), Group (1..16383), Force Store (1=ON, 0=OFF) / Block (1..8) / Scene (1..16)
+ASCII Example
+To store the current levels of all channels in group 17 as scene 5 in scene block 2:
+>V:1,C:203,G:17,O:1,B:2,S:5#
+
+204 - Store As Scene (Channel)
+Stores the current level of the channel into the specified block / scene. If the Force flag is clear
+and 'ignore' is already stored in the Scene Table for the channel, then the scene is not
+stored.
+Command
+Command (204), Cluster (1..253) / Router (1..254), Subnet (1..4) / Device (1..255), Force Store
+(1=ON, 0=OFF) / Block (1..8) / Scene (1..16), Level (0..100)
+ASCII Example
+To store the current level of channel 2.2.1.1 as scene 5 in scene block 2:
+>V:1,C:204,@2.2.1.1,O:1,B:2,S:5#
+205 - Reset Emergency Battery and Total Lamp Time (Group)
+Reset the Emergency Battery and Total Lamp Time across a group.
+Note: This command has no effect if sent to a group containing non-emergency devices.
+Command
+Command (205), Group (1..16383)
+ASCII Example
+To reset the Emergency Battery Time and Total Lamp time across group 56:
+>V:1,C:205,G:56#
+206 - Reset Emergency Battery and Total Lamp Time (Device)
+Reset the Emergency Battery and Total Lamp Time at a device.
+Note: This command has no effect if sent to a non-emergency device.
+Command
+Command (206), Cluster (1..253) / Router (1..254), Subnet (1..4) / Device (1..255)
+ASCII Example
+To reset the Emergency Battery Time and Total Lamp time of an emergency lighting ballast at
+address 8.67.2.37:
+>V:1,C:206,@8.67.2.37#
+
+examples:
+Command: Store Scene (Group)
+- Command Number: 201
+- Group: 1..16383
+- Force Store Block: 1..8
+- Scene: 1..16
+- Level: 0..100%
+
+Command: Store Scene (Device)
+- Command Number: 202
+- Cluster: 1..253
+- Router: 1..254
+- Subnet: 1..4
+- Device: 1..255
+- Force Store Block: 1..8
+- Scene: 1..16
+- Level: 0..100%
+  Special values:
+  - 253 = Last Level
+  - 254 = Ignore
+
+Command: Store As Scene (Group)
+- Command Number: 203
+- Group: 1..16383
+- Force Store Block: 1..8
+- Scene: 1..16
+
+Command: Store As Scene (Device)
+- Command Number: 204
+- Cluster: 1..253
+- Router: 1..254
+- Subnet: 1..4
+- Device: 1..255
+- Force Store Block: 1..8
+- Scene: 1..16
+
+Command: Reset Emergency Battery and Total Lamp Time (Group)
+- Command Number: 205
+- Group: 1..16383
+
+Control Commands
+11 - Recall Scene (Group)
+Send a scene recall across a group.
+Note: To call a constant light scene, use the Constant Light flag (with a parameter value of 1).
+
+Command
+Command (11), Group (1..16383), Block (1..8), Scene (1..16), Constant Light (1=ON, 0=OFF),
+Fade Time (0..6553.5s)
+ASCII Example
+To recall constant light scene 5 in scene block 2, across group 17, with a fade time of 90 seconds:
+>V:1,C:11,G:17,K:1,B:2,S:5,F:9000#
+12 - Recall Scene (Device)
+Send a scene recall to a device .
+Note: This command should not be sent to any device other than a load (control gear).
+Otherwise you will receive a diagnostic response if one was requested.
+Command
+Command (12), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255), Block (1..8),
+Scene (1..16), Fade Time (0..6553.5s)
+ASCII Example
+To recall scene 4 in scene block 7, in a device at address 1.2.3.4, with a fade time of 1 second:
+>V:1,C:12,B:7,S:4,F:100,@1.2.3.4#
+
+13 - Direct Level (Group)
+Change the output level of all channels in a group.
+Command
+Command (13), Group (1..16383), Level (0..100), Fade Time (0..6553.5s)
+ASCII Example
+To change the output level to 60 % across group 17, with a fade time of 90 seconds:
+>V:1,C:13,G:17,L:60,F:9000#
+
+14 - Direct Level (Device)
+Change the level of a load .
+
+Command
+Command (14), Cluster (1..253) / Router (1..254), Subnet (1..4) / Device (1..255), Level (0..100),
+Fade Time (0..6553.5s)
+ASCII Example
+To change the output level to 60 % in a device at address 1.2.3.4, with a fade time of 90 seconds:
+>V:1,C:14,L:60,F:9000,@1.2.3.4#
+Proportion Control Commands
+When sending a ‘Direct Proportion’ value, this value relates to a proportion of the difference
+between the last recalled scene level or direct level and the output limits of the device.
+When sending a positive value, this is a proportion of the difference of said level and 100 %
+level. For example, if the last recalled scene level or direct level is 44 % and you send a ‘Direct
+Proportion at 50%’ command, then the level rises from 44 % to 72 % (100 – 44 = 56;
+56 × 50 % = 28; 28 + 44 = 72).
+When sending a negative proportion value, this is a proportion of the difference of the last
+recalled scene or direct level and 0 %, which so happens to be a proportion of the level itself. For
+example, if the level is at 44 % and you send a command to perform the ‘Direct Proportion’
+function at –50 %, then the level decreases to 22 % (i.e. 50 % of 44 %).
+Notes:
+ The range for the ‘Direct Proportion’ and ‘Modify Proportion’ functions is –100 % to
+100%.
+ Any succeeding ‘Direct Proportion’ commands will also use the last recalled scene or
+direct level as a base mark.
+When sending a ‘Modify Proportion’ value, the same formula applies, only you are changing the
+currently applied ‘Direct Proportion’ value.
+Take the example above resulting in a ‘Direct Proportion’ level of 72 %. If you send a ‘Modify
+Proportion at 5 %’ command, then the level rises from 72 % to approx. 75 % (100 – 44 = 56;
+56× 55 % = 30.8; 30.8 + 44 = 74.8).
+When sending a negative value, the formula subtracts that value from the ‘Direct Proportion’
+level e.g. Still using the same example, if you send ‘Modify Proportion at –5 %’ command, then 
+the level decreases from 72% to approx. 69 % (100 – 44 = 56; 56 × 45 % = 25.2;
+25.2 + 44 = 69.2).
+
+15 – Direct Proportion (Group)
+Send a ‘Direct Proportion’ message across a group (± 100 %).
+Command
+Command (15), Group (1..16383), Proportion (–100..100), Fade Time (0..6553.5s)
+ASCII Example
+To send a direct proportion of 72 % across group 17 (with a fade time of 90 seconds):
+>V:1,C:15,P:72,G:17,F:9000#
+
+16 - Direct Proportion (Device)
+Send a ‘Direct Proportion’ message to a load (± 100%).
+Command
+Command (16), Cluster (1..253) / Router (1..254), Subnet (1..4), Device (1..255), Proportion (-
+100..100), Fade Time (0..6553.5s)
+ASCII Example
+To send a direct proportion of 72% in a device at address 1.2.3.4 (with a fade time of 90
+seconds):
+>V:1,C:16,P:72,F:9000,@1.2.3.4#
+
+17 - Modify Proportion (Group)
+Modify a ‘Direct Proportion’ level sent to a group (± 100 %).
+Command
+Command (17), Group (1..16383), Proportion Change (–100..100), Fade Time (0..6553.5s)
+ASCII Example
+To send a modify proportion of 5 % across group 17, with a fade time of 90 seconds:
+>V:1,C:17,P:5,G:17,F:9000#
+
+18 - Modify Proportion (Device)
+Modify a ‘Direct Proportion’ level sent to a load (± 100 %).
+Command
+Command (18), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255), Proportion
+Change (-100..100), Fade Time (0..6553.5s)
+ASCII Example
+To send a modify proportion of 5 % in a device at address 1.2.3.4, with a fade time of 90
+seconds:
+>V:1,C:18,P:5,F:9000,@1.2.3.4#
+Emergency Test Control Commands
+Emergency Test commands should only be sent to DALI emergency lighting ballasts, otherwise
+the emergency test will not be performed. See DALI Emergency Lighting for more information
+about emergency lighting and how to test it.
+Note: Starting or stopping an Emergency Test will cause the corresponding 'Test Done' flag
+to be cleared.
+
+19 - Emergency Function Test (Group)
+Request an Emergency Function Test across a group.
+Note: This command has no effect if sent to a group containing non-emergency devices.
+Command
+Command (19), Group (1..16383)
+ASCII Example
+To request an Emergency Function Test across group 56:
+>V:1,C:19,G:56#
+
+20 - Emergency Function Test (Device)
+Request an Emergency Function Test to an emergency lighting ballast.
+Note: This command has no effect if sent to a non-emergency device.
+Command
+Command (20), Cluster (1..253) / Router (1..254), Subnet (1..4) / Device (1..255)
+ASCII Example
+To request an Emergency Function Test to an emergency lighting ballast at address 8.67.2.37:
+>V:1,C:20,@8.67.2.37#
+21 - Emergency Duration Test (Group)
+Request an Emergency Duration Test across a group.
+Note: This command has no effect if sent to a group containing non-emergency devices.
+Command
+Command (21), Group (1..16383)
+ASCII Example
+To request an Emergency Duration Test across group 56:
+>V:1,C:21,G:56#
+22 - Emergency Duration Test (Device)
+Request an Emergency Duration Test to an emergency lighting ballast.
+Note: This command has no effect if sent to a non-emergency device.
+Command
+Command (22), Cluster (1..253) / Router (1..254), Subnet (1..4) / Device (1..255)
+ASCII Example
+To request an Emergency Duration Test to an emergency lighting ballast at address 8.67.2.37:
+>V:1,C:22,@8.67.2.37#
+23 - Stop Emergency Tests (Group)
+Stop all Emergency Tests across a group.
+Note: This command has no effect if sent to a group containing non-emergency devices.
+Command
+Command (23), Group (1..16383)
+ASCII Example
+To stop all Emergency Tests across group 56:
+>V:1,C:23,G:56#
+24 - Stop Emergency Tests (Device)
+Stop any Emergency Test running in an emergency ballast.
+Note: This command has no effect if sent to a non-emergency device.
+Command
+Command (24), Cluster (1..253) / Router (1..254), Subnet (1..4) / Device (1..255)
+ASCII Example
+To stop any Emergency Test to an emergency lighting ballast at address 8.67.2.37:
+>V:1,C:24,@8.67.2.37#
+
+summary:
+Command: Recall Scene (Group)
+- Command Number: 11
+- Target: Group 1..16383
+- Additional Parameters: CL 1 or 0, Block 1..8, Scene 1..16
+- Fade Time: 0..6553.5s
+
+Command: Recall Scene (Device)
+- Command Number: 12
+- Target: Cluster 1..253, Router 1..254, Subnet 1..4, Device 1..255
+- Additional Parameters: Block 1..8, Scene 1..16
+- Fade Time: 0..6553.5s
+
+Command: Direct Level (Group)
+- Command Number: 13
+- Target: Group 1..16383
+- Additional Parameters: Level 0..100%
+- Fade Time: 0..6553.5s
+
+Command: Direct Level (Device)
+- Command Number: 14
+- Target: Cluster 1..253, Router 1..254, Subnet 1..4, Device 1..255
+- Additional Parameters: Level 0..100%
+- Fade Time: 0..6553.5s
+
+Command: Direct Proportion (Group)
+- Command Number: 15
+- Target: Group 1..16383
+- Additional Parameters: Proportion 0..100%
+- Fade Time: 0..6553.5s
+
+Command: Direct Proportion (Device)
+- Command Number: 16
+- Target: Cluster 1..253, Router 1..254, Subnet 1..4, Device 1..255
+- Additional Parameters: Proportion 0..100%
+- Fade Time: 0..6553.5s
+
+Command: Modify Proportion (Group)
+- Command Number: 17
+- Target: Group 1..16383
+- Additional Parameters: Proportion Change -100..100%
+- Fade Time: 0..6553.5s
+
+Command: Modify Proportion (Device)
+- Command Number: 18
+- Target: Cluster 1..253, Router 1..254, Subnet 1..4, Device 1..255
+- Additional Parameters: Proportion Change -100..100%
+- Fade Time: 0..6553.5s
+
+Command: Emergency Function Test (Group)
+- Command Number: 19
+- Target: Group 1..16383
+
+Command: Emergency Function Test (Device)
+- Command Number: 20
+- Target: Cluster 1..253, Router 1..254, Subnet 1..4, Device 1..255
+
+Command: Emergency Duration Test (Group)
+- Command Number: 21
+- Target: Group 1..16383
+
+Command: Emergency Duration Test (Device)
+- Command Number: 22
+- Target: Cluster 1..253, Router 1..254, Subnet 1..4, Device 1..255
+
+Command: Stop Emergency Tests (Group)
+- Command Number: 23
+- Target: Group 1..16383
+
+Command: Stop Emergency Tests (Device)
+- Command Number: 24
+- Target: Cluster 1..253, Router 1..254, Subnet 1..4, Device 1..255
+
+
+HelvarNet Errors/Diagnostics
+The routers are capable of providing useful diagnostic information for all possible Ethernet I/O
+messages received from a 3rd party device . The diagnostic response can provide information
+concerning whether a message was successful, was invalid or was not appropriate for a specified
+address.
+Successful queries will simply be replied with the answer.
+However, if the query is invalid or does not contain the correct parameters then an error
+diagnostic will be returned, instead of the expected answer, with the original query.
+For lighting or configuration commands diagnostic information is available on demand and is
+achieved by specifying that you want this information returned using the Ethernet I/O
+'Acknowledgment' feature.
+In the ASCII format this will mean attaching the parameter ID 'A' with a parameter value of 1 or
+in the RAW format by switching the 'Acknowledgment' flag on in the command word.
+The following table shows you the raw value and ASCII description for each error message:
+
+Raw Value | ASCII Description
+0  |  Success
+1  |  Error - Invalid group index parameter
+2  |  Error - Invalid cluster parameter
+3  |  Error - Invalid router parameter
+4  |  Error - Invalid subnet parameter
+5  |  Error - Invalid device parameter
+6  |  Error - Invalid sub device parameter
+7  |  Error - Invalid block parameter
+8  |  Error - Invalid scene parameter
+9  |  Error - Cluster does not exist
+10 |  Error - Router does not exist
+11 |  Error - Device does not exist
+12 |  Error - Property does not exist
+13 |  Error - Invalid RAW message size
+14 |  Error - Invalid messages type
+15 |  Error - Invalid message command
+16 |  Error - Missing ASCII terminator
+17 |  Error - Missing ASCII parameter
+18 |  Error - Incompatible version
+
+The error message contains the command data which was sent, followed by the data concerning
+the erroneous command. See below for an example error message in ASCII and raw formats.
+Example ASCII Format
+If you send the following Query Device type command:
+
+>V:1,C:104,@:2.2.1.1#
+If the device does not exist, then the reply will be:
+!V:1,C:104,@:2.2.1.1=11#
+Query Commands
+General Query Commands
+101 - Query Clusters
+When you send a Query Clusters command, the reply provides you with all the Cluster IDs
+that exist in the system.
+Command
+Send: Command (101)
+Reply
+Returns a bit field indicating the presence of all clusters:
+Command (101), Cluster Count, 8x32 bit Words detailing the existence of the clusters 1-
+253 (bits 0, 254, 255 are always zero)
+ASCII Example
+If you send the following Query Clusters command:
+>V:1,C:101#
+If there are clusters 1, 2 and 253, then the reply will be:
+?V:1,C:101=1,2,253#
+102 - Query Routers
+When you send a Query Routers command, the reply provides you with all the Cluster
+Member (Router) IDs that exist in the specified cluster.
+Command
+Send: Command (102), Cluster (1..253)
+
+Reply
+Returns a bit field indicating the presence of all routers within the specified cluster:
+Command (102), Router Count / Cluster ID (1..253), 8x32 bit Words detailing the
+existence of the routers 1-254 (bits 0 and 255 are always zero)
+ASCII Example
+If you send the following Query Routers in cluster 253 command:
+>V:1,C:102,@253#
+If there are routers 252, 253 and 254 in cluster 253, then the reply will be:
+?V:1,C:102,@253=252,253,254#
+103 - Query Last Scene In Block (LSIB)
+When you send a Query Last Scene In Block command, the reply provides you with the
+last scene that was recalled in the specified scene block.
+Note
+If no scene has been recalled, Query Last Scene In Block replies
+may also return current block status information.
+See table below for the status description, ASCII reply information
+and HEX reply information.
+
+Status: Off
+- ASCII Reply: 128
+- HEX Reply: 0x0080
+
+Status: Min level
+- ASCII Reply: 129
+- HEX Reply: 0x0081
+
+Status: Max level
+- ASCII Reply: 130
+- HEX Reply: 0x0082
+
+Status: Last Scene Percentage (0%)
+- ASCII Reply: 137
+- HEX Reply: 0x0089
+
+Status: Last Scene Percentage (1%)
+- ASCII Reply: 138
+- HEX Reply: 0x008A
+
+Status: Last Scene Percentage (100%)
+- ASCII Reply: 237
+- HEX Reply: 0x00ED
+
+Command
+Send: Command (103), Group (1..16383), Block (1..8)
+Reply
+Returns the number of the last recalled scene in the scene block:
+Command (103), Group (1..16383), Block (1..8), Last Scene In Block (1..16)
+ASCII Example
+If you send the following Query LSIB command (including the group and scene block
+parameters):
+>V:1,C:103,G:5,B:2#
+If the last scene called in the block is 4, then the reply will be:
+?V:1,C:103,G:5,B:2=4#
+109 - Query Last Scene In Group (LSIG)
+When you send a Query Last Scene In Group command, the reply provides you with the
+last scene that was recalled in the specified group.
+ Note: If no scene has been recalled, Query Last Scene In Group replies may also return current
+group status information.
+
+Command
+Send: Command (109), Group (1..16383)
+Reply
+Returns the number of the last recalled scene in the group:
+Command (109), Group (1..16383), Last Scene In Group (1..128)
+ASCII Example
+If you send the following Query LSIG command:
+>V:2,C:109,G:5#
+If the last scene called in the group is 78, then the reply will be:
+?V:2,C:109,G:5=78#
+104 - Query Device Type
+DALI , Digidim, Imagine (SDIM ) and DMX devices are all capable of returning a device
+type. Devices can return more than one piece of type information.
+For an ASCII query the response will be four comma separated values, the last of which is
+the protocol; the penultimate is the device type; and the remaining two are extra device
+information.
+For a raw query the response will be returned in a 32 bit Word. The least significant byte
+contains the protocol; the next least significant byte contains the main device type; the two
+most significant bytes contain extra device information.
+The devices protocols are as follows:
+
+Protocol | Values
+DALI | 0x01
+Digidim | 0x02
+Imagine / SDIM | 0x04
+DMX | 0x08
+
+Note: Only certain combinations of device types are valid or make sense.
+Command
+Send: Command (104), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255)
+
+Reply
+Returns the device type:
+Command (104), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255), Device
+Type (see tables below)
+ASCII Example
+If you send the following Query Device Type command (including the full address of the
+device):
+>V:1,C:104,@2.2.1.1#
+If the device is a 100 Rotary, then the reply will be:
+?V:1,C:104,@2.2.1.1=00100802#
+
+DALI Device Type Information
+
+Device Type: Fluorescent Lamps
+- Byte3–Byte1 (MSBytes): 0x00
+- Byte0 (LSByte): 0x01
+
+Device Type: Self-contained emergency lighting
+- Byte3–Byte1 (MSBytes): 0x01
+- Byte0 (LSByte): 0x01
+
+Device Type: Discharge lamps (excluding fluorescent lamps)
+- Byte3–Byte1 (MSBytes): 0x02
+- Byte0 (LSByte): 0x01
+
+Device Type: Low voltage halogen lamps
+- Byte3–Byte1 (MSBytes): 0x03
+- Byte0 (LSByte): 0x01
+
+Device Type: Incandescent lamps
+- Byte3–Byte1 (MSBytes): 0x04
+- Byte0 (LSByte): 0x01
+
+Device Type: Conversion into D.C. voltage (IEC 60929)
+- Byte3–Byte1 (MSBytes): 0x05
+- Byte0 (LSByte): 0x01
+
+Device Type: LED modules
+- Byte3–Byte1 (MSBytes): 0x06
+- Byte0 (LSByte): 0x01
+
+Device Type: Switching function (i.e., Relay)
+- Byte3–Byte1 (MSBytes): 0x07
+- Byte0 (LSByte): 0x01
+
+Device Type: Colour control
+- Byte3–Byte1 (MSBytes): 0x08
+- Byte0 (LSByte): 0x01
+
+Device Type: Sequencer
+- Byte3–Byte1 (MSBytes): 0x09
+- Byte0 (LSByte): 0x01
+
+Device Type: Undefined
+- Byte3–Byte1 (MSBytes): 0x0B – 0xFE
+- Byte0 (LSByte): 0x01
+
+Digidim Control Device Type Information Table
+
+Device Type: 100 – Rotary
+- Byte3 (MSB): 0x00
+- Byte2: 0x10
+- Byte1: 0x08
+- Byte0 (LSB): 0x02
+
+Device Type: 110 – Single Sider
+- Byte3 (MSB): 0x00
+- Byte2: 0x11
+- Byte1: 0x07
+- Byte0 (LSB): 0x02
+
+Device Type: 111 – Double Sider
+- Byte3 (MSB): 0x00
+- Byte2: 0x11
+- Byte1: 0x14
+- Byte0 (LSB): 0x02
+
+Device Type: 121 – 2 Button On/Off + IR
+- Byte3 (MSB): 0x00
+- Byte2: 0x12
+- Byte1: 0x13
+- Byte0 (LSB): 0x02
+
+Device Type: 122 – 2 Button Modifier + IR
+- Byte3 (MSB): 0x00
+- Byte2: 0x12
+- Byte1: 0x20
+- Byte0 (LSB): 0x02
+
+Device Type: 124 – 5 Button + IR
+- Byte3 (MSB): 0x00
+- Byte2: 0x12
+- Byte1: 0x44
+- Byte0 (LSB): 0x02
+
+Device Type: 125 – 5 Button + Modifier + IR
+- Byte3 (MSB): 0x00
+- Byte2: 0x12
+- Byte1: 0x51
+- Byte0 (LSB): 0x02
+
+Device Type: 126 – 8 Button + IR
+- Byte3 (MSB): 0x00
+- Byte2: 0x12
+- Byte1: 0x68
+- Byte0 (LSB): 0x02
+
+Device Type: 170 – IR Receiver
+- Byte3 (MSB): 0x00
+- Byte2: 0x17
+- Byte1: 0x01
+- Byte0 (LSB): 0x02
+
+Device Type: 312 – Multisensor
+- Byte3 (MSB): 0x00
+- Byte2: 0x31
+- Byte1: 0x25
+- Byte0 (LSB): 0x02
+
+Device Type: 410 – Ballast (1-10V Converter)
+- Byte3 (MSB): 0x00
+- Byte2: 0x41
+- Byte1: 0x08
+- Byte0 (LSB): 0x02
+
+Device Type: 416S – 16A Dimmer
+- Byte3 (MSB): 0x00
+- Byte2: 0x41
+- Byte1: 0x60
+- Byte0 (LSB): 0x02
+
+Device Type: 425S – 25A Dimmer
+- Byte3 (MSB): 0x00
+- Byte2: 0x42
+- Byte1: 0x52
+- Byte0 (LSB): 0x02
+
+Device Type: 444 – Mini Input Unit
+- Byte3 (MSB): 0x00
+- Byte2: 0x44
+- Byte1: 0x43
+- Byte0 (LSB): 0x02
+
+Device Type: 450 – 800W Dimmer
+- Byte3 (MSB): 0x00
+- Byte2: 0x45
+- Byte1: 0x04
+- Byte0 (LSB): 0x02
+
+Device Type: 452 – 1000W Universal Dimmer
+- Byte3 (MSB): 0x00
+- Byte2: 0x45
+- Byte1: 0x28
+- Byte0 (LSB): 0x02
+
+Device Type: 455 – 500W Thruster Dimmer
+- Byte3 (MSB): 0x00
+- Byte2: 0x45
+- Byte1: 0x59
+- Byte0 (LSB): 0x02
+
+Device Type: 458/DIMB – 8-Channel Dimmer
+- Byte3 (MSB): 0x00
+- Byte2: 0x45
+- Byte1: 0x80
+- Byte0 (LSB): 0x02
+
+Device Type: 459/CTRB – 8-Ch Ballast Controller
+- Byte3 (MSB): 0x74
+- Byte2: 0x45
+- Byte1: 0x81
+- Byte0 (LSB): 0x02
+
+Device Type: 459/SWB – 8-Ch Relay Module
+- Byte3 (MSB): 0x04
+- Byte2: 0x45
+- Byte1: 0x83
+- Byte0 (LSB): 0x02
+
+Device Type: 460 – DALI-to-SDIM Converter
+- Byte3 (MSB): 0x00
+- Byte2: 0x46
+- Byte1: 0x03
+- Byte0 (LSB): 0x02
+
+Device Type: 472 – Din Rail 1-10V/DS/8 Converter
+- Byte3 (MSB): 0x00
+- Byte2: 0x47
+- Byte1: 0x26
+- Byte0 (LSB): 0x02
+
+Device Type: 474 – 4-Ch Ballast (Output Unit)
+- Byte3 (MSB): 0x00
+- Byte2: 0x47
+- Byte1: 0x40
+- Byte0 (LSB): 0x02
+
+Device Type: 474 – 4-Ch Ballast (Relay Unit)
+- Byte3 (MSB): 0x00
+- Byte2: 0x47
+- Byte1: 0x41
+- Byte0 (LSB): 0x02
+
+Device Type: 490 – Blinds Unit
+- Byte3 (MSB): 0x00
+- Byte2: 0x49
+- Byte1: 0x00
+- Byte0 (LSB): 0x02
+
+Device Type: 494 – Relay Unit
+- Byte3 (MSB): 0x00
+- Byte2: 0x49
+- Byte1: 0x48
+- Byte0 (LSB): 0x02
+
+Device Type: 498 – Relay Unit
+- Byte3 (MSB): 0x00
+- Byte2: 0x49
+- Byte1: 0x66
+- Byte0 (LSB): 0x02
+
+Device Type: 804 – Digidim 4
+- Byte3 (MSB): 0x00
+- Byte2: 0x80
+- Byte1: 0x45
+- Byte0 (LSB): 0x02
+
+Device Type: 924 – LCD TouchPanel
+- Byte3 (MSB): 0x00
+- Byte2: 0x82
+- Byte1: 0x40
+- Byte0 (LSB): 0x02
+
+Device Type: 935 – Scene Commander (6 Buttons)
+- Byte3 (MSB): 0x00
+- Byte2: 0x93
+- Byte1: 0x56
+- Byte0 (LSB): 0x02
+
+Device Type: 939 – Scene Commander (10 Buttons)
+- Byte3 (MSB): 0x00
+- Byte2: 0x93
+- Byte1: 0x94
+- Byte0 (LSB): 0x02
+
+Device Type: 942 – Analogue Input Unit
+- Byte3 (MSB): 0x00
+- Byte2: 0x94
+- Byte1: 0x24
+- Byte0 (LSB): 0x02
+
+Device Type: 459/CPT4 – 4-Ch Options Module
+- Byte3 (MSB): 0x00
+- Byte2: 0x45
+- Byte1: 0x86
+- Byte0 (LSB): 0x02
+
+Imagine (SDIM) Device Type Information Table
+
+Device Type: No device present
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0x00
+- Byte0 (LSB): 0x04
+
+Device Type: 474 – 4 Channel Ballast Controller - Relay Unit
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0xF1
+- Byte0 (LSB): 0x04
+
+Device Type: 474 – 4 Channel Ballast Controller - Output Unit
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0xF2
+- Byte0 (LSB): 0x04
+
+Device Type: 458/SW8 – 8-Channel Relay Module
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0xF3
+- Byte0 (LSB): 0x04
+
+Device Type: 458/CTR8 – 8-Channel Ballast Controller
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0xF4
+- Byte0 (LSB): 0x04
+
+Device Type: 458/OPT4 – Options Module
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0xF5
+- Byte0 (LSB): 0x04
+
+Device Type: 498 – 8-Channel Relay Unit
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0xF6
+- Byte0 (LSB): 0x04
+
+Device Type: 458/DIM8 – 8-Channel Dimmer
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0xF7
+- Byte0 (LSB): 0x04
+
+Device Type: HES92060 – Sine Wave Dimmer
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0xF8
+- Byte0 (LSB): 0x04
+
+Device Type: Ambience4 Dimmer
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0xF9
+- Byte0 (LSB): 0x04
+
+Device Type: HES92020 – SCR Dimmer
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0xFA
+- Byte0 (LSB): 0x04
+
+Device Type: HES98020 – Output Unit
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0xFB
+- Byte0 (LSB): 0x04
+
+Device Type: HES92220 – Transistor Dimmer
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0xFC
+- Byte0 (LSB): 0x04
+
+Device Type: HES98180-98291 – Relay Unit
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0xFE
+- Byte0 (LSB): 0x04
+
+Device Type: Dimmer (old style, type undefined)
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0xFF
+- Byte0 (LSB): 0x04
+
+DMX Device Type Information
+
+Device Type: DMX No device present
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0x00
+- Byte0 (LSB): 0x08
+
+Device Type: DMX Channel In
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0x01
+- Byte0 (LSB): 0x08
+
+Device Type: DMX Channel Out
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0x02
+- Byte0 (LSB): 0x08
+
+
+Digidim Control Key Type Information
+
+Key Type: SinglePress
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0x00
+- Byte0 (LSB): 0x01
+
+Key Type: TimedPress
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0x00
+- Byte0 (LSB): 0x02
+
+Key Type: ToggleSolo
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0x00
+- Byte0 (LSB): 0x03
+
+Key Type: ToggleBlock
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0x00
+- Byte0 (LSB): 0x04
+
+Key Type: TouchDimBlock
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0x00
+- Byte0 (LSB): 0x05
+
+Key Type: TouchDimSolo
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0x00
+- Byte0 (LSB): 0x06
+
+Key Type: Modifier
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0x00
+- Byte0 (LSB): 0x07
+
+Key Type: EdgeMode
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0x00
+- Byte0 (LSB): 0x08
+
+Key Type: Slider
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0x00
+- Byte0 (LSB): 0x09
+
+Key Type: AnalogueInput
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0x00
+- Byte0 (LSB): 0x0A
+
+Key Type: Rotary
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0x00
+- Byte0 (LSB): 0x0B
+
+Key Type: PIR
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0x00
+- Byte0 (LSB): 0x0C
+
+Key Type: ContantLight
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0x00
+- Byte0 (LSB): 0x0D
+
+Key Type: SliderInputUnit
+- Byte3 (MSB): 0x00
+- Byte2: 0x00
+- Byte1: 0x00
+- Byte0 (LSB): 0x0E
+
+100 - Query Device Types and Addresses
+When targeted at a subnet it will respond with all of the devices types with corresponding
+index, as in command 104. The device type and index pairs are in this format: Device
+Type @ index.
+ASCII Example
+If you send the following Query Device Type command (including the full address of the
+device):
+>V:2,C:100@2.2.1#
+If the DALI subnet has 2 devices, one being a 100 Rotary at index 1, and the other being a
+110 Slider at index 10, then the reply will be:
+?V:2,C:100@2.2.1.1=00100802@1,00110702@10#
+
+105 - Query Description Group
+DALI , Digidim, Imagine ( SDIM ) and DMX devices are all capable of returning a
+description of the group.
+The replies in the following examples are the default descriptions for those devices/objects.
+However, the reply will return group name according to the conventions you have applied
+to your lighting system via Designer. For example, if the group has been named 'Building'
+then this will be returned in the Query Description Group reply.
+Note: The query description group replies are case sensitive as per the Microsoft Windows ®
+ASCII extended character set.
+Command
+Send: Command (105), Group (1...16383)
+Reply
+Returns: Command (105), Group (1...16383), Group description
+ASCII Example
+If you send the following Query Description Group command (including the group
+number):
+>>V:1,C:105,G:5#
+The reply will be the command sent and the reply containing the group description of the
+group requested i.e.
+?V:1,C:105,G:5=Group 5#
+
+106 - Query Description Device
+DALI , Digidim, Imagine ( SDIM ) and DMX devices are all capable of returning a
+description of a specific device.
+The replies in the following examples are the default descriptions for those devices/objects.
+However, the reply will return group name according to the conventions you have applied
+to your lighting system via Designer. For example, if the device has been named 'Ballast
+10' then this will be returned in the Query Description Group reply.
+Note: The query description device replies are case sensitive as per the Microsoft Windows ®
+ASCII extended character set.
+Command
+Send: Command (106), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255)
+Reply
+Returns a description of the device:
+Command (106), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255), Device
+description
+ASCII Example
+If you send the following Query Description Device command (including the full address
+of the device):
+>V:1,C:106,@2.2.1.1#
+If the device is called 'Ballast', then the reply will be:
+?V:1,C:106,@2.2.1.1=Ballast#
+Discovery Query Commands
+The following set of commands are extensions to version 1 and are designed to allow for the
+discovery of a Helvar router system.
+107 - Query Workgroup Name - UDP Broadcast
+By broadcasting this command all Helvar routers that exist on a network, providing that they can
+see the message, will respond with the Workgroup name to which they belong. If there are multiple
+workgroups, then there will be responses from all routers in all workgroups. 
+
+ASCII Example
+If you broadcast (using UDP) the following Query Workgroup Name command:
+>V:2,C:107#
+All routers will respond with:
+?V:2,C:107=WorkgroupName#
+For example, a router with workgroup name 'Restaurant' will respond with:
+?V:2,C:107=Restaurant#
+108 - Query Workgroup Membership
+A router will respond to this query with the address strings of the routers that are members of the
+workgroup.
+An address string contains the IP address of the router, and takes the form of '@10.254.1.1'.
+ASCII Example
+If you send the following Query Workgroup Membership command:
+>V:2,C:108#
+A typical response will be:
+?V:2,C:108=@10.254.1.1,@10.254.1.2,@10.254.1.3#
+165 - Query Groups
+A router will respond to this query with the group identifiers of all groups that have been
+programmed to the router's workgroup.
+The response is a comma delimited string of group identifiers.
+ASCII Example
+If you send the following Query Groups command:
+>V:2,C:165#
+A typical response will be:
+?V:2,C:165=1,2,3,4,...,100#
+
+164 - Query Group
+A router will respond to this query with the address strings of all devices that are members of the
+group.
+The device address string contains the cluster, router, subnet and device index, and takes the form
+of '@1.1.1.34'.
+ASCII Example
+If you send the following Query Groups command:
+>V:2,C:164,G:100#
+A typical response will be:
+?V:2,C:164,G:100=@1.1.1.34,@1.1.1.35,@1.1.1.36#
+166 - Query Scene Names
+A router will respond to this query with the scene descriptions that are prefixed with the
+corresponding group, block and scene.
+The scene description string contains the group, block, and scene numbers and scene description,
+and takes the form of '@G.B.S:Description'.
+ASCII Example
+If you send the following Query Groups command:
+>V:2,C:166#
+A typical response will be:
+?V:2,C:166=@1.1.1:Morning@1.1.2:Afternoon@1.1.3:Night#
+167 - Query Scene Info
+When targeted at a load interface, the response will include all of the scene levels.
+The response will contain all 136 scene levels, in a comma delimited format.
+Ignores are represented by '*'. Last Level is represented by 'L'.
+ASCII Example
+If you send the following Query Groups command:
+>V:2,C:167@1.1.1.4#
+A typical response will be:
+?V:2,C:167@1.1.1.4=100,75,50,25,0,0,0,0,0,0,0,0,L,L,L,0,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,(3
+3-128),*,*,*,*,*,*,*,*#
+
+Note: (33-128) in the above example represents scenes 33 to 128.
+Device State Query Commands
+110 - Query Device State
+E.g. disabled, lamp fault, missing, overtemperature, Function Test in progress, Function
+Test passed etc.
+Command
+Send: Command (110), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255)
+Reply
+Returns the device state:
+Command (110), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255), Device
+State (see table below)
+ASCII Example
+If you send the following Query Device State command (including the full address of the
+device):
+>V:1,C:110,@2.2.1.1#
+If the device has been disabled, then the reply will be:
+?V:1,C:110,@2.2.1.1=1#
+
+Device State Flags Table
+
+State: NSDisabled – Device or subdevice has been disabled
+- Flag Value: 0x00000001
+
+State: NSLampFailure – Unspecified lamp problem
+- Flag Value: 0x00000002
+
+State: NSMissing – Device previously existed but is not currently present
+- Flag Value: 0x00000004
+
+State: NSFaulty – Address issues / unknown control device / DALI load responding with multireplies
+- Flag Value: 0x00000008
+
+State: NSRefreshing – Device is being discovered
+- Flag Value: 0x00000010
+
+State: NSReserved – Internal use
+- Flag Value: 0x00000020
+
+State: NSReserved
+- Flag Value: 0x00000040
+
+State: NSReserved – Internal use
+- Flag Value: 0x00000080
+
+State: NSEM_Resting – Load is off while powered by emergency supply
+- Flag Value: 0x00000100
+
+State: NSEM_Reserved
+- Flag Value: 0x00000200
+
+State: NSEM_InEmergency – No mains power supplied
+- Flag Value: 0x00000400
+
+State: NSEM_InProlong – Mains restored, still using emergency power
+- Flag Value: 0x00000800
+
+State: NSEM_FTInProgress – Functional Test is running
+- Flag Value: 0x00001000
+
+State: NSEM_DTInProgress – Duration Test is running
+- Flag Value: 0x00002000
+
+State: NSEM_Reserved
+- Flag Value: 0x00004000
+
+State: NSEM_Reserved
+- Flag Value: 0x00008000
+
+State: NSEM_DTPending – Duration Test requested but not started
+- Flag Value: 0x00010000
+
+State: NSEM_FTPending – Functional Test requested but not started
+- Flag Value: 0x00020000
+
+State: NSEM_BatteryFail – Battery failure
+- Flag Value: 0x00040000
+
+State: NSReserved – Internal use
+- Flag Value: 0x00080000
+
+State: NSReserved – Internal use
+- Flag Value: 0x00100000
+
+State: NSEM_Inhibit – Prevents emergency mode
+- Flag Value: 0x00200000
+
+State: NSEM_FTRequested – Functional Test has been requested
+- Flag Value: 0x00400000
+
+State: NSEM_DTRequested – Duration Test has been requested
+- Flag Value: 0x00800000
+
+State: NSEM_Unknown – Initial state
+- Flag Value: 0x01000000
+
+State: NSOverTemperature – Load is overheating
+- Flag Value: 0x02000000
+
+State: NSOverCurrent – Load drawing too much current
+- Flag Value: 0x04000000
+
+State: NSCommsError – Communications error
+- Flag Value: 0x08000000
+
+State: NSSevereError – Over temperature and/or over current
+- Flag Value: 0x10000000
+
+State: NSBadReply – Malformed reply received
+- Flag Value: 0x20000000
+
+State: NSReserved
+- Flag Value: 0x40000000
+
+State: NSDeviceMismatch – Actual load type doesn't match expected
+- Flag Value: 0x80000000
+
+111 - Query Device Is Disabled
+Query whether the device has been disabled.
+Command
+Send: Command (111), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255)
+Reply
+Returns the lamp state:
+Command (111), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255), Device
+Disabled State (1=Disabled, 0=Enabled)
+ASCII Example
+If you send the following Query Device Is Disabled command (including the full address
+of the device):
+>V:1,C:111,@1.1.2.58#
+If the device has been disabled, then the reply will be:
+?V:1,C:111,@1.1.2.58=1#
+112 - Query Lamp Failure
+Query whether the lamp has failed.
+Note:This command should not be sent to any device other than a ballast, otherwise you will
+receive a 'Property does not exist' error message. See Error / Diagnostic Messages.
+Command
+Send: Command (112), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255)
+Reply
+Returns the lamp state:
+Command (112), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255), Lamp
+Failure State (1=Failed, 0=OK)
+ASCII Example
+If you send the following Query Lamp Failure command (including the full address of the
+device):
+>V:1,C:112,@1.1.2.58#
+If the lamp has failed, then the reply will be:
+?V:1,C:112,@1.1.2.58=1#
+113 - Query Device Is Missing
+Query whether the device is missing.
+Command
+Send: Command (113), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255)
+Reply
+Returns a message indicating whether the device is missing or not:
+Command (113), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255), Device
+Missing State (1=Missing, 0=Present)
+ASCII Example
+If you send the following Query Device Is Missing command (including the full address of
+the device):
+>V:1,C:113,@2.2.1.1#
+If the device is missing, then the reply will be:
+?V:1,C:113,@2.2.1.1=1#
+114 - Query Device Is Faulty
+Query whether the device is faulty.
+Command
+Send: Command (114), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255)
+Reply
+Returns a message indicating whether the device is faulty or not:
+Command (114), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255), Device
+Faulty State (1=Faulty, 0=OK)
+ASCII Example
+If you send the following Query Device Is Faulty command (including the full address of
+the device):
+>V:1,C:114,@2.2.1.1#
+If the device is faulty, then the reply will be:
+?V:1,C:114,@2.2.1.1=1#
+129 - Query Emergency Battery Failure
+Query whether the emergency ballast's battery has failed.
+Note: This command should not be sent to any device other than an emergency ballast,
+otherwise you will receive a 'Property does not exist' error message. See Error / Diagnostic
+Messages.
+Command
+Send: Command (129), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255)
+Reply
+Returns the emergency battery state:
+Command (129), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255), Battery
+Failure State (1=Failed, 0=OK)
+ASCII Example
+If you send the following Query Emergency Battery Failure command (including the full
+address of the device):
+>V:1,C:129,@1.1.2.58#
+If the emergency ballast's battery has failed, then the reply will be:
+?V:1,C:129,@1.1.2.58=1#
+
+Measurement / Input / Level Query Commands
+Note: Devices / subdevices of this type must be configured in Designer before you can query
+their measurement, input(s) or level. Specifically, they must be grouped
+150 - Query Measurement
+For analogue types, e.g. light measurement (Multisensor), analogue input (Analogue Input
+Unit).
+Note: If sent to a digital device / subdevice which does not perform any measurement, for
+example a Button Panel, then you will receive a 'Property does not exist' error message. See
+Error / Diagnostic Messages..
+Command
+Send: Command (150), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255),
+Subdevice (1..16)
+Reply
+Returns the measurement from the device / subdevice:
+Command (150), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255),
+Subdevice (1..16), Measurement (1..100)
+ASCII Example
+If you send the following Query Measurement command (including the full address of the
+subdevice):
+>V:1,C:150,@2.2.1.1.4#
+If the measurement from the subdevice is 100, then the reply will be:
+?V:1,C:150,@2.2.1.1.4=100#
+
+151 - Query Inputs
+Returns the state or digital input(s) of: a device (e.g. for the PIR detector of a Multisensor -
+0x01=occupied within past minute, 0x00=unoccupied); or the LEDs of a button panel; or
+the switch inputs of an input unit. If sent to the device level, summarises the digital input
+state. If sent to the subdevice level, gives the state of that subdevice’s input.
+Note: Before running Query Inputs, make sure that the input source has been set via Designer
+for input devices such as the 444 Mini Input Unit or 942 Analogue Input Unit . See Analogue
+Mode Configuration and Edge Mode Configuration.
+Command
+Send: Command (151), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255),
+Subdevice (1..16)
+Reply
+Returns the input state of the device / subdevice:
+Command (151), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255),
+Subdevice (1..16), Input State (see below)
+The majority of subdevices have on and off states and are therefore represented by 0 (OFF)
+or 1 (ON). For example, buttons with LEDs will either be pressed (LED on) or not pressed
+(LED off). See below for the exceptions.
+Mini Input Unit: As there are 8 inputs on this device there will be 8 states e.g.
+01001100 would be represented in ASCII as 50.
+Slider: 0..100 (level in %)
+Analogue Input Unit: 0..100 (level in %)
+ASCII Example
+If you send the following Query Inputs command to a subdevice (including the full address
+of the subdevice):
+>V:1,C:151,@2.2.1.1.4#
+If the state of the subdevice is ON, then the reply will be:
+?V:1,C:151,@2.2.1.1.4=1#
+
+152 - Query Load Level
+Note: This command should not be sent to any device other than a load (control gear),
+otherwise you will receive a 'Property does not exist' error message. See Error / Diagnostic
+Messages.
+Command
+Send: Command (152), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255)
+Reply
+Command (152), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255), Load
+Level (1..100)
+ASCII Example
+If you send the following Query Load Level command (including the full address of the
+device):
+>V:1,C:152,@1.1.2.15#
+If the load level is 25%, then the reply will be:
+?V:1,C:152,@1.1.2.15=25#
+Note:Query load level commands may also report a level even though the device may be set
+to 'Off'. This is because the load level is set below the switch on level.
+ Levels above 50% may be subject to a 1% swing when returning levels due to the
+DALI standard logarithmic dimming curve . E.g. setting the level of a DALI ballast to
+93% in Designer will cause the router to actually return a level of 92% when queried
+using Ethernet I/O. This is because 93% is not accounted for in the DALI logarithmic
+dimming curve. The router always assigns the closest dimming curve level to the level
+set in Designer. For further information see DALI Logarithmic Dimming Levels
+ASCII Example
+If you send the following Query Load Level command (including the full address of the
+device):
+>V:1,C:152,@1.1.2.15#
+If the load level is set at 1% and the switch on level is 2%, then the reply will be:
+?V:1,C:152,@1.1.2.15=2147483649#
+The ASCII and Raw reply responses, 2147483649 and 0x80000001 are synonymous. If these replies are
+returned following a query load level request then the device at the specified address is 'Off' even though it
+appears 'On'.
+Power Consumption Query Commands
+160 - Query Power Consumption
+Query the power consumption of a device.
+Note: If the power consumption of the device is unknown, then you will receive a value of 0
+in the reply.
+Command
+Send: Command (160), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255)
+Reply
+Command (160), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255), Power
+(in W)
+ASCII Example
+If you send the following Query Power Consumption command (including the full address
+of the device):
+>V:1,C:160,@1.1.2.15#
+If the power consumption of the device is 23 W, then the reply will be:
+?V:1,C:160,@1.1.2.15=23#
+161 - Query Group Power Consumption
+Query the power consumption of all devices in a group.
+Note: If the total power consumption of the devices in the group are unknown, then you will
+receive a value of 0 in the reply.
+Command
+Send: Command (161), Group (1..16383)
+Reply
+Command (161), Group (1..16383), Power Consumption (in Watts)
+ASCII Example
+If you send the following Query Group Power Consumption command (including the
+group number):
+>V:1,C:161,G:16#
+If the group's power consumption is 105 W, then the reply will be:
+?V:1,C:161,G:16=105#
+Emergency Test Query Commands
+170 - Query Emergency Function Test Time
+Note: Emergency Test queries should only be sent to emergency ballasts, otherwise you will
+receive a 'Property does not exist' error message. See Error / Diagnostic Messages.
+Command
+Send: Command (170), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255)
+Reply
+Command (170), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255),
+Emergency Function Test Time (hh:mm:ss dd-mmm-yyyy)
+ASCII Example
+If you send the following Query Emergency Function Test Time command (including the
+full address of the device):
+>V:1,C:170,@1.1.2.15#
+If the Emergency Function Test Time is 08:00 on 1st July 2009, then the reply will be:
+?V:1,C:170,@1.1.2.15=08:00:00 01-Jul-2009#
+171 - Query Emergency Function Test State
+Note:
+ Emergency Test queries should only be sent to emergency ballasts, otherwise you will
+receive a 'Property does not exist' error message. See Error / Diagnostic Messages.
+Command
+Send: Command (171), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255)
+Reply
+Command (171), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255),
+Emergency Function Test State (combinations of the following emergency state values)
+
+Emergency State Values
+
+State: Pass
+- Value: 0
+
+State: Lamp Failure
+- Value: 1
+
+State: Battery Failure
+- Value: 2
+
+State: Faulty
+- Value: 4
+
+State: Failure
+- Value: 8
+
+State: Test Pending
+- Value: 16
+
+State: Unknown
+- Value: 32
+
+ASCII Example
+If you send the following Query Emergency Function Test Pending command (including
+the full address of the device):
+>V:1,C:171,@1.1.2.15#
+If the Emergency Function Test is pending, then the reply will be:
+?V:1,C:171,@1.1.2.15=16#
+172 - Query Emergency Duration Test Time
+Note: Emergency Test queries should only be sent to emergency ballasts, otherwise you will
+receive a 'Property does not exist' error message. See Error / Diagnostic Messages.
+Command
+Send: Command (172), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255)
+Reply
+Command (172), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255),
+Emergency Duration Test Time (hh:mm:ss dd-mmm-yyyy)
+ASCII Example
+If you send the following Query Emergency Duration Test Time command (including the
+full address of the device):
+>V:1,C:172,@1.1.2.15#
+If the Emergency Duration Test Time is 06:00 on 1st January 2010, then the reply will be:
+?V:1,C:172,@1.1.2.15=06:00:00#
+173 - Query Emergency Duration Test State
+Note: Emergency Test queries should only be sent to emergency ballasts, otherwise you will
+receive a 'Property does not exist' error message. See Error / Diagnostic Messages.
+Command
+Send: Command (173), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255)
+Reply
+Command (173), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255),
+Emergency Duration Test Pending (combinations of the emergency state values described
+in command 171)
+ASCII Example
+If you send the following Query Emergency Duration Test Pending command (including
+the full address of the device):
+>V:1,C:173,@1.1.2.15#
+If the Emergency Duration Test is pending, then the reply will be:
+?V:1,C:173,@1.1.2.15=16#
+174 - Query Emergency Battery Charge
+Query the remaining charge of the emergency ballast battery.
+Note: Emergency queries should only be sent to emergency ballasts, otherwise you will
+receive a 'Property does not exist' error message. See Error / Diagnostic Messages.
+Command
+Send: Command (174), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255)
+Reply
+Command (174), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255),
+Emergency Battery Charge (0..100%)
+ASCII Example
+If you send the following Query Emergency Battery Charge command (including the full
+address of the emergency ballast):
+>V:1,C:174,@1.1.2.15#
+If the emergency ballast battery has 40% charge remaining, then the reply will be:
+?V:1,C:174,@1.1.2.15=40#
+175 - Query Emergency Battery Time
+Query the current total running time of the emergency ballast battery.
+Note: Emergency queries should only be sent to emergency ballasts, otherwise you will
+receive a 'Property does not exist' error message. See Error / Diagnostic Messages.
+Command
+Send: Command (175), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255)
+Reply
+Command (175), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255),
+Emergency Battery Time (1 ... 255 hours)
+ASCII Example
+If you send the following Query Emergency Battery Time command (including the full
+address of the emergency ballast):
+>V:1,C:175,@1.1.2.15#
+If the emergency ballast battery running time has been 12 hours, then the reply will be:
+?V:1,C:175,@1.1.2.15=12#
+176 - Query Emergency Total Lamp Time
+Query the current total lamp running time from any power source.
+Note: Emergency queries should only be sent to emergency ballasts, otherwise you will
+receive a 'Property does not exist' error message. See Error / Diagnostic Messages.
+Command
+Send: Command (176), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255)
+Reply
+Command (176), Cluster (1..253), Router (1..254), Subnet (1..4), Device (1..255),
+Emergency Total Lamp Time (1 ... 1020 hours)
+ASCII Example
+If you send the following Query Emergency Total Lamp Time command (including the full
+address of the emergency ballast):
+>V:1,C:176,@1.1.2.15#
+If the emergency ballast total lamp running time has been 100 hours, then the reply will be:
+?V:1,C:176,@1.1.2.15=100#
+System Query Commands
+185 - Query Time
+Command
+Send: Command (185)
+Reply
+Returns the local system time:
+Command (185), Local System Time (hh:mm:ss dd-mmm-yyyy)
+ASCII Example
+If you send the following Query Time command:
+>V:1,C:185#
+If the time is 14:36:39 on 1st July 2009, then the reply will be:
+?V:1,C:185=1245591399#
+188 - Query Time Zone
+Command
+Send: Command (188)
+Reply
+Returns the timezone offset (difference in seconds, moving westward, between UTC and
+local time [GMT]):
+Command (188), Time Difference (-12..12 hours)
+ASCII Example: Central European Time [1 hour's time difference from GMT]
+If you send the following Query Time Zone command:
+>V:1,C:188#
+If your location is in Central Europe at 1 hour ahead of Greenwich Mean time
+(GMT), then the reply will be:
+??V:1,C:188=-3600#
+ASCII Example: Central Time (US and Canada) [6 hours' time difference from GMT]
+If you send the following Query Time Zone command:
+>V:1,C:188#
+If you are located at 6 hours offset from Greenwich Mean time (GMT), then the
+reply will be:
+?V:1,C:188=21600#
+189 - Query Daylight Saving Time
+Command
+Send: Command (189)
+Reply
+Returns the DST:
+Command (189), DST (1=ON, 0=OFF)
+ASCII Example
+If you send the following Query DST command:
+>V:1,C:189#
+If Daylight Saving Time is enabled, then the reply will be:
+?V:1,C:189=1#
+190 - Query Software Version
+Query the router firmware version.
+Command
+Send: Command (190)
+Reply
+Returns the software version:
+Command (190), Software Version (e.g. 4.2.2)
+ASCII Example
+If you send the following Query Software Version command:
+>V:1,C:190#
+If the router firmware version is 4.2.2, then the reply will be:
+?V:1,C:190=67240448#
+191 - Query HelvarNet Version
+Query the HelvarNet software version.
+Command
+Send: Command (191)
+Reply
+Returns the software version:
+Command (191), HelvarNet Version (e.g. 1)
+ASCII Example
+If you send the following HelvarNet Software Version command:
+>V:1,C:191#
+If the HelvarNet version is 1, then the reply will be:
+?V:1,C:191=1#
+
+Query Command Table
+
+Name: Query Lamp Running Hours
+- Command Number: 70
+- Parameters: —
+
+Name: Query Ballast Running Hours
+- Command Number: 71
+- Parameters: —
+
+Name: Query Maximum Voltage
+- Command Number: 72
+- Parameters: —
+
+Name: Query Minimum Voltage
+- Command Number: 73
+- Parameters: —
+
+Name: Query Maximum Temperature
+- Command Number: 74
+- Parameters: —
+
+Name: Query Minimum Temperature
+- Command Number: 75
+- Parameters: —
+
+Name: Query Clusters
+- Command Number: 101
+- Parameters: —
+
+Name: Query Routers
+- Command Number: 102
+- Parameters: Cluster: 1–253
+
+Name: Query LSIB
+- Command Number: 103
+- Parameters: Group: 1–16383, Block: 1–8
+
+Name: Query Device Type
+- Command Number: 104
+- Parameters: Cluster: 1–253, Router: 1–254, Subnet: 1–4, Device: 1–255
+
+Name: Query Description Group
+- Command Number: 105
+- Parameters: Group: 1–16383
+
+Name: Query Description Device
+- Command Number: 106
+- Parameters: Cluster: 1–253, Router: 1–254, Subnet: 1–4, Device: 1–255
+
+Name: Query Device State
+- Command Number: 110
+- Parameters: Cluster: 1–253, Router: 1–254, Subnet: 1–4, Device: 1–255
+
+Name: Query Device Is Disabled
+- Command Number: 111
+- Parameters: Cluster: 1–253, Router: 1–254, Subnet: 1–4, Device: 1–255
+
+Name: Query Lamp Failure
+- Command Number: 112
+- Parameters: Cluster: 1–253, Router: 1–254, Subnet: 1–4, Device: 1–255
+
+Name: Query Device Is Faulty
+- Command Number: 113
+- Parameters: Cluster: 1–253, Router: 1–254, Subnet: 1–4, Device: 1–255
+
+Name: Query Device Is Missing
+- Command Number: 114
+- Parameters: Cluster: 1–253, Router: 1–254, Subnet: 1–4, Device: 1–255
+
+Name: Query Emergency Battery Failure
+- Command Number: 129
+- Parameters: Cluster: 1–253, Router: 1–254, Subnet: 1–4, Device: 1–255
+
+Name: Query Measurement
+- Command Number: 150
+- Parameters: Cluster: 1–253, Router: 1–254, Subnet: 1–4, Device: 1–255, Subdevice: 0 or 1–16
+
+Name: Query Inputs
+- Command Number: 151
+- Parameters: Cluster: 1–253, Router: 1–254, Subnet: 1–4, Device: 1–255, Subdevice: 0 or 1–16
+
+Name: Query Load Level
+- Command Number: 152
+- Parameters: Cluster: 1–253, Router: 1–254, Subnet: 1–4, Device: 1–255
+
+Name: Query Power Consumption
+- Command Number: 160
+- Parameters: Cluster: 1–253, Router: 1–254, Subnet: 1–4, Device: 1–255
+
+Name: Query Group Power Consumption
+- Command Number: 161
+- Parameters: Group: 1–16383
+
+Name: Query Emergency Function Test Time
+- Command Number: 170
+- Parameters: —
+
+Name: Query Emergency Function Test State
+- Command Number: 171
+- Parameters: —
+
+Name: Query Emergency Duration Test Time
+- Command Number: 172
+- Parameters: —
+
+Name: Query Emergency Duration Test State
+- Command Number: 173
+- Parameters: —
+
+Name: Query Emergency Battery Charge
+- Command Number: 174
+- Parameters: —
+
+Name: Query Emergency Battery Time
+- Command Number: 175
+- Parameters: —
+
+Name: Query Emergency Total Lamp Time
+- Command Number: 176
+- Parameters: —
+
+Name: Query Time
+- Command Number: 185
+- Parameters: —
+
+Name: Query Time Zone
+- Command Number: 188
+- Parameters: —
+
+Name: Query Daylight Saving Time
+- Command Number: 189
+- Parameters: —
+
+Name: Query Software Version
+- Command Number: 190
+- Parameters: —
+
+Name: Query HelvarNet Version
+- Command Number: 191
+- Parameters: —
+ 
+Query Replies Table
+
+Cmd No: 101
+- Name: Query Clusters
+- Reply: List of Cluster IDs
+
+Cmd No: 102
+- Name: Query Routers
+- Reply: List of Router IDs
+
+Cmd No: 103
+- Name: Query LSIB
+- Reply: LSIB, 1..16
+
+Cmd No: 104
+- Name: Query Device Type
+- Reply: Device Type
+
+Cmd No: 105
+- Name: Query Description Group
+- Reply: ASCII group description
+
+Cmd No: 106
+- Name: Query Description Device
+- Reply: ASCII device description
+
+Cmd No: 110
+- Name: Query Device State
+- Reply: Bitmask state value
+
+Cmd No: 111
+- Name: Query Device Is Disabled
+- Reply: 1 = Disabled, 0 = OK
+
+Cmd No: 112
+- Name: Query Lamp Failure
+- Reply: 1 = Failed, 0 = OK
+
+Cmd No: 113
+- Name: Query Device Is Faulty
+- Reply: 1 = Faulty, 0 = OK
+
+Cmd No: 114
+- Name: Query Device Is Missing
+- Reply: 1 = Missing, 0 = Present
+
+Cmd No: 129
+- Name: Query Emergency Battery Failure
+- Reply: 1 = Failed, 0 = OK
+
+Cmd No: 150
+- Name: Query Measurement
+- Reply: 0-200 or 1–100 (%)
+
+Cmd No: 151
+- Name: Query Inputs
+- Reply: Input bitmask
+
+Cmd No: 152
+- Name: Query Load Level
+- Reply: Load level 1–100 (%)
+
+Cmd No: 160
+- Name: Query Power Consumption
+- Reply: Power (W)
+
+Cmd No: 161
+- Name: Query Group Power Consumption
+- Reply: Power (W)
+
+Cmd No: 170
+- Name: Query Emergency Function Test Time
+- Reply: Time (Epoch Seconds)
+
+Cmd No: 171
+- Name: Query Emergency Function Test State
+- Reply: Bitmask test status
+
+Cmd No: 172
+- Name: Query Emergency Duration Test Time
+- Reply: Time (Epoch Seconds)
+
+Cmd No: 173
+- Name: Query Emergency Duration Test State
+- Reply: Bitmask test status
+
+Cmd No: 174
+- Name: Query Emergency Battery Charge
+- Reply: 0–100 (%)
+
+Cmd No: 175
+- Name: Query Emergency Battery Time
+- Reply: 0–255 hours
+
+Cmd No: 176
+- Name: Query Emergency Total Lamp Time
+- Reply: Total time (decimal)
+
+Cmd No: 185
+- Name: Query Time
+- Reply: Epoch time (seconds)
+
+Cmd No: 188
+- Name: Query Time Zone
+- Reply: Seconds from GMT
+
+Cmd No: 189
+- Name: Query Daylight Saving Time
+- Reply: 1 = On, 0 = Off
+
+Cmd No: 190
+- Name: Query Software Version
+- Reply: Hexadecimal breakdown
+
+Cmd No: 191
+- Name: Query HelvarNet Version
+- Reply: Version string
+
+

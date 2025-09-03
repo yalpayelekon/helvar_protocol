@@ -1,0 +1,601 @@
+<?xml version="1.0"?>
+<helvar>	
+	<outputdevice>
+		<name>HELVAR EL1x14si (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4928402</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>HELVAR EL2x14si (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4932102</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>HELVAR EL4x14si (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4220902</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>HELVAR EL1x21si (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4929102</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>HELVAR EL2x21si (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4933802</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>HELVAR EL1x24si (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4922202</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL2x24si (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4927702</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL1x28si (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4930702</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL2x28si (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4934502</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL1x35si (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4931402</hexId>		
+	</outputdevice>		
+	<outputdevice>
+		<name>HELVAR EL2x35si (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4935202</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL1x36si (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4215502</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL2x36si (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>
+		<hexId>4213102</hexId>			
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL1x39si (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4921502</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL2x39si (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4926002</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL1x49si (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>
+		<hexId>4920802</hexId>			
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL2x49si (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>		
+		<hexId>4925302</hexId>	
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL1x54si (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>		
+		<hexId>4915402</hexId>	
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL2x54si (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4924602</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL1x55si (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4214802</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL2x55si (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4212402</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL1x80si (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4923902</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL1x14-35 iDim (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>		
+		<hexId>4341102</hexId>	
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL2x14-35 iDim (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4350302</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL4x14 iDim (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>		
+		<hexId>4355802</hexId>	
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL3x14 iDim (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4356502</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL1x24 iDim (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>		
+		<hexId>4344202</hexId>	
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL2x24 iDim (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4354102</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL1x36 iDim (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4348002</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL2x36 iDim (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4353402</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL1x39 iDim (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4343502</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL2x39 iDim (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>
+		<hexId>4351002</hexId>			
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL1x49 iDim (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4342802</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL2x49 iDim (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4347302</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL1x54 iDim (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4340402</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL2x54 iDim (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4345902</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL1x55 iDim (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>		
+		<hexId>4349702</hexId>	
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL2x55 iDim (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4352702</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>HELVAR EL1x80 iDim (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4346602</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>HELVAR EL2x80 iDim (Helvar Ballast)</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>4357202</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>HELVAR EL1/2x26-42 iDim-c (Helvar Ballast)</name>  
+		<icon>assets/icons/ballast.png</icon> 
+		<hexId>4228502</hexId>  
+	</outputdevice>
+	<outputdevice>
+		<name>HELVAR EL1/2x18 iDim-c (Helvar Ballast)</name>  
+		<icon>assets/icons/ballast.png</icon> 
+		<hexId>4229202</hexId>  
+	</outputdevice>
+	<outputdevice>
+		<name>HELVAR EL1/2x18-24 iDim-c (Helvar Ballast)</name>  
+		<icon>assets/icons/ballast.png</icon> 
+		<hexId>4230802</hexId>  
+	</outputdevice>
+	<outputdevice>
+		<name>HELVAR EL2x26-42 iDim-c (Helvar Ballast)</name>  
+		<icon>assets/icons/ballast.png</icon> 
+		<hexId>4231502</hexId>  
+	</outputdevice>
+	<outputdevice>
+		<name>HELVAR EL1/2x36-38 iDim-c (Helvar Ballast)</name>  
+		<icon>assets/icons/ballast.png</icon> 
+		<hexId>4232202</hexId>  
+	</outputdevice>
+	<outputdevice>
+		<name>HELVAR EL1x14-17 iDim-c (Helvar Ballast)</name>  
+		<icon>assets/icons/ballast.png</icon> 
+		<hexId>4235302</hexId>  
+	</outputdevice>
+	<outputdevice>
+		<name>HELVAR EL2x14-17 iDim-c (Helvar Ballast)</name>  
+		<icon>assets/icons/ballast.png</icon> 
+		<hexId>4236002</hexId>  
+	</outputdevice>
+	<outputdevice>
+		<name>HELVAR LC30-E-DA</name>  
+		<icon>assets/icons/LEDunit.png</icon> 
+		<hexId>5502502</hexId>  
+	</outputdevice>
+	<outputdevice>
+		<name>416 (solo dimmer)</name>		
+		<icon>assets/icons/dimmer.png</icon>	
+		<hexId>416002</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>425 (solo dimmer)</name>		
+		<icon>assets/icons/dimmer.png</icon>			
+		<hexId>425202</hexId>
+	</outputdevice>	
+	<outputdevice>
+		<name>Universal Dimmer 452</name>		
+		<icon>assets/icons/dimmer.png</icon>
+		<hexId>452802</hexId>			
+	</outputdevice>	
+	<outputdevice>
+		<name>454 (4 channel thyristor dimmer) DALI</name>		
+		<icon>assets/icons/dimmer.png</icon>	
+		<hexId>454202</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>454 (4 channel thyristor dimmer) SDIM</name>		
+		<icon>assets/icons/dimmer.png</icon>	
+		<hexId>EF04</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>455 (thyristor dimmer)</name>		
+		<icon>assets/icons/dimmer.png</icon>	
+		<hexId>455902</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>458/DIM8 (8 channel thyristor dimmer) DALI</name>		
+		<icon>assets/icons/dimmer.png</icon>	
+		<hexId>458002</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>458/DIM8 (8 channel thyristor dimmer) SDIM</name>		
+		<icon>assets/icons/dimmer.png</icon>	
+		<hexId>F704</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>458/DIM4 (4 channel thyristor dimmer) DALI</name>		
+		<icon>assets/icons/dimmer.png</icon>		
+		<hexId>1458902</hexId>	
+	</outputdevice>	
+	<outputdevice>
+		<name>458/DIM4 (4 channel thyristor dimmer) SDIM</name>		
+		<icon>assets/icons/dimmer.png</icon>		
+		<hexId>F004</hexId>	
+	</outputdevice>
+	<outputdevice>
+	  <name>458/UNI8 (8 channel universal dimmer) DALI</name>  
+	  <icon>assets/icons/dimmer.png</icon> 
+	  <hexId>458402</hexId>
+	</outputdevice> 
+	 <outputdevice>
+	  <name>458/UNI8 (8 channel universal dimmer) SDIM</name>  
+	  <icon>assets/icons/dimmer.png</icon> 
+	  <hexId>E804</hexId>
+	</outputdevice>		
+	<outputdevice>
+		<name>804 (4 channel dimmer)</name>		
+		<icon>assets/icons/dimmer.png</icon>	
+		<hexId>804502</hexId>		
+	</outputdevice>	
+	<outputdevice>
+		<name>472 (1-10v convertor)</name>		
+		<icon>assets/icons/472.png</icon>	
+		<hexId>472602</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>474 (4 channel 1-10v convertor) DALI</name>		
+		<icon>assets/icons/472.png</icon>
+		<hexId>474002</hexId>			
+	</outputdevice>
+	<outputdevice>
+		<name>474 (4 channel 1-10v convertor) SDIM</name>		
+		<icon>assets/icons/472.png</icon>
+		<hexId>F204</hexId>			
+	</outputdevice>
+	<outputdevice>
+		<name>474 Relay Unit</name>		
+		<icon>assets/icons/491.png</icon>
+		<hexId>F104</hexId>			
+	</outputdevice>
+	<outputdevice>
+	  <name>478 (8 Subnet DALI controller) DALI</name>  
+	  <icon>assets/icons/472.png</icon>
+	  <hexId>478802</hexId>
+	</outputdevice>
+	<outputdevice>
+	  <name>478 (8 Subnet DALI controller) SDIM</name>  
+	  <icon>assets/icons/472.png</icon>
+	  <hexId> E604</hexId>
+	</outputdevice>	
+	<outputdevice>
+		<name>490 (2 channel blinds controller)</name>		
+		<icon>assets/icons/490.png</icon>		
+		<hexId>490002</hexId>	
+	</outputdevice>
+	<outputdevice>
+		<name>492 (relay)</name>  
+		<icon>assets/icons/491.png</icon>  
+		<hexId>492402</hexId> 
+	</outputdevice>
+	<outputdevice>
+		<name>493 (relay)</name>  
+		<icon>assets/icons/491.png</icon>  
+		<hexId>493102</hexId> 
+	</outputdevice>
+	<outputdevice>
+		<name>Relay Unit 494</name>		
+		<icon>assets/icons/491.png</icon>	
+		<hexId>494802</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>498 (8 channel relay) DALI</name>		
+		<icon>assets/icons/491.png</icon>	
+		<hexId>498602</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>498 (8 channel relay) SDIM</name>		
+		<icon>assets/icons/491.png</icon>	
+		<hexId>F604</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>458/SW8 (8 channel relay) DALI</name>		
+		<icon>assets/icons/491.png</icon>	
+		<hexId>9458102</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>458/SW8 (8 channel relay) SDIM</name>		
+		<icon>assets/icons/491.png</icon>	
+		<hexId>F304</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>Ballast</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>1</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>HID Lamp</name>		
+		<icon>assets/icons/ballast.png</icon>	
+		<hexId>201</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>Emergency Lighting</name>		
+		<icon>assets/icons/outputemergency.png</icon>			
+		<hexId>101</hexId>
+	</outputdevice>
+	<outputdevice>
+		<name>LV Halogen Lamp</name>		
+		<icon>assets/icons/dimmer.png</icon>	
+		<hexId>301</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>LED Unit</name>		
+		<icon>assets/icons/LEDunit.png</icon>	
+		<hexId>601</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>Dimmer</name>		
+		<icon>assets/icons/dimmer.png</icon>	
+		<hexId>401</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>Convertor 1-10V</name>		
+		<icon>assets/icons/472.png</icon>	
+		<hexId>501</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>Relay Unit</name>		
+		<icon>assets/icons/491.png</icon>
+		<hexId>701</hexId>			
+	</outputdevice>
+	<outputdevice>
+		<name>92060 (Sinewave Dimmer)</name>		
+		<icon>assets/icons/dimmer.png</icon>	
+		<hexId>F804</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>92020 (2 channel SCR dimmer)</name>		
+		<icon>assets/icons/dimmer.png</icon>
+		<hexId>FA04</hexId>			
+	</outputdevice>
+	<outputdevice>
+		<name>92220 (2 channel Transistor dimmer)</name>		
+		<icon>assets/icons/dimmer.png</icon>
+		<hexId>FC04</hexId>			
+	</outputdevice>
+	<outputdevice>
+		<name>Ambience (4 channel dimmer)</name>		
+		<icon>assets/icons/dimmer.png</icon>
+		<hexId>F904</hexId>			
+	</outputdevice>
+	<outputdevice>
+		<name>98020 (2 channel output unit)</name>		
+		<icon>assets/icons/472.png</icon>	
+		<hexId>FB04</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>458/OPT4 (4 channel 1-10v convertor) DALI</name>		
+		<icon>assets/icons/472.png</icon>	
+		<hexId>4458602</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>458/OPT4 (4 channel 1-10v convertor) SDIM</name>		
+		<icon>assets/icons/472.png</icon>	
+		<hexId>f504</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>458/CTR8 (8 channel 1-10v convertor) DALI</name>		
+		<icon>assets/icons/472.png</icon>	
+		<hexId>7458302</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>458/CTR8 (8 channel 1-10v convertor) SDIM</name>		
+		<icon>assets/icons/472.png</icon>	
+		<hexId>f404</hexId>		
+	</outputdevice>
+	<outputdevice>
+		<name>98XXX(8 channel relay)</name>		
+		<icon>assets/icons/491.png</icon>
+		<hexId>fE04</hexId>			
+	</outputdevice>	
+	<!-- <outputdevice>
+		<name>DMX Channel In</name>                               
+		<icon>assets/icons/dmx.png</icon>                              
+		<hexId>108</hexId>
+	</outputdevice> -->
+	<outputdevice>
+		<name>DMX Channel Out</name>                               
+		<icon>assets/icons/dmx.png</icon>                              
+		<hexId>208</hexId>
+	</outputdevice>
+	
+ <!-- Nov 2016 Additions Start -->
+	<outputdevice>
+  		<name>499 (8 channel relay) DALI</name>  
+  		<icon>assets/icons/491.png</icon> 
+  		<hexId>499302</hexId>  
+ 	</outputdevice> 	
+ 	<outputdevice>
+  		<name>499 (8 channel relay) SDIM</name>  
+  		<icon>assets/icons/491.png</icon> 
+  		<hexId>E404</hexId>  
+ 	</outputdevice>
+	<outputdevice>
+  		<name>Colour</name>  
+  		<icon>assets/icons/LEDunit.png</icon> 
+  		<hexId>801</hexId>  
+ 	</outputdevice>
+	<outputdevice>
+  		<name>Sequencer</name>  
+  		<icon>assets/icons/LEDunit.png</icon> 
+  		<hexId>901</hexId>  
+ 	</outputdevice>
+	<outputdevice>
+  		<name>Optical</name>  
+  		<icon>assets/icons/LEDunit.png</icon> 
+  		<hexId>1001</hexId>  
+ 	</outputdevice>
+	<outputdevice>
+  		<name>Reserve</name>  
+  		<icon>assets/icons/LEDunit.png</icon> 
+  		<hexId>1101</hexId>  
+ 	</outputdevice>
+	<outputdevice>
+		<name>454 (4 channel transistor dimmer) DALI</name>  
+  		<icon>assets/icons/dimmer.png</icon> 
+  		<hexId>1454102</hexId>  
+ 	</outputdevice> 
+ 	<outputdevice>
+		<name>454 (4 channel transistor dimmer) SDIM</name>  
+  		<icon>assets/icons/dimmer.png</icon> 
+  		<hexId>E504</hexId>  
+ 	</outputdevice> 
+	<outputdevice>
+  		<name>HELVAR LL1xCV-DA</name>  
+  		<icon>assets/icons/LEDunit.png</icon> 
+  		<hexId>57000902</hexId>  
+ 	</outputdevice>
+	<outputdevice>
+  		<name>HELVAR LL1x20-E-DA</name>  
+  		<icon>assets/icons/LEDunit.png</icon> 
+  		<hexId>55180002</hexId>  
+ 	</outputdevice>
+	<outputdevice>
+  		<name>HELVAR LC1x25-DA</name>  
+  		<icon>assets/icons/LEDunit.png</icon> 
+  		<hexId>55660702</hexId>  
+ 	</outputdevice>
+	<outputdevice>
+  		<name>HELVAR LC1x35-DA</name>  
+  		<icon>assets/icons/LEDunit.png</icon> 
+  		<hexId>55640902</hexId>  
+ 	</outputdevice>
+	<outputdevice>
+  		<name>HELVAR LL1x40-E-DA-350-700</name>  
+  		<icon>assets/icons/LEDunit.png</icon> 
+  		<hexId>55210402</hexId>  
+ 	</outputdevice>
+	<outputdevice>
+  		<name>HELVAR LL1x40-E-DA-700-1050</name>  
+  		<icon>assets/icons/LEDunit.png</icon> 
+  		<hexId>55240102</hexId>  
+ 	</outputdevice>
+	<outputdevice>
+  		<name>HELVAR LL1x50-E-DA</name>  
+  		<icon>assets/icons/LEDunit.png</icon> 
+  		<hexId>55420702</hexId>  
+ 	</outputdevice>
+	<outputdevice>
+  		<name>HELVAR LC1x50-E-DA</name>  
+  		<icon>assets/icons/LEDunit.png</icon> 
+  		<hexId>55430602</hexId>  
+ 	</outputdevice>
+	<outputdevice>
+  		<name>HELVAR LL1x80-E-DA-350-700</name>  
+  		<icon>assets/icons/LEDunit.png</icon> 
+  		<hexId>55560002</hexId>  
+ 	</outputdevice>
+	<outputdevice>
+  		<name>HELVAR LL1x23-80-E-DA</name>  
+  		<icon>assets/icons/LEDunit.png</icon> 
+  		<hexId>55550102</hexId>  
+ 	</outputdevice>
+	<outputdevice>
+  		<name>HELVAR LL1x110-E-DA</name>  
+  		<icon>assets/icons/LEDunit.png</icon> 
+  		<hexId>55320002</hexId>  
+ 	</outputdevice>
+	<outputdevice>
+  		<name>HELVAR LL35/2-E-DA-iC</name>  
+  		<icon>assets/icons/LEDunit.png</icon> 
+  		<hexId>55370502</hexId>  
+ 	</outputdevice>
+	<outputdevice>
+  		<name>HELVAR LL60/2-E-DA-iC</name>  
+  		<icon>assets/icons/LEDunit.png</icon> 
+  		<hexId>55330902</hexId>  
+ 	</outputdevice>
+ <!-- Nov 2016 Additions End -->
+ <!-- Oct 2017 Additions start -->
+	<outputdevice>
+		<name>HELVAR LL60/2-E-DA-IC</name>
+		<icon>assets/icons/LEDunit.png</icon>
+		<hexId>2000801</hexId>
+	</outputdevice>
+<!-- Oct 2017 Additions End -->
+<!-- Mar 2018 Additions start -->
+	<outputdevice>
+		<name>DALI Colour</name>
+		<icon>assets/icons/LEDunit.png</icon>
+		<hexId>FF000801</hexId>
+	</outputdevice>
+<!-- Mar 2018 Additions start --> 
+ 
+</helvar>

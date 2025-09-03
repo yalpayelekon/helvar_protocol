@@ -1,0 +1,734 @@
+<?xml version="1.0"?>
+<helvar>
+    <inputdevice>
+        <name>Button 121</name>
+        <points>Button 1,Button 2,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,4,9,10,11,12,13,14,15</addressScheme>
+        <icon>assets/icons/121.png</icon>
+        <hexId>121302</hexId>
+    </inputdevice>
+    <inputdevice>
+        <name>Button 122</name>
+        <points>Button 1,Button 2,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,4,9,10,11,12,13,14,15</addressScheme>
+        <icon>assets/icons/122.png</icon>    
+        <hexId>122002</hexId>        
+    </inputdevice>
+    <inputdevice>
+        <name>Button 124</name>
+        <points>Button 1,Button 2,Button 3,Button 4,Button 5,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,9,10,11,12,13,14,15</addressScheme>
+        <icon>assets/icons/124.png</icon>
+        <hexId>124402</hexId>
+    </inputdevice>
+    <inputdevice>
+        <name>Button 125</name>
+        <points>Button 1,Button 2,Button 3,Button 4,Button 5,Button 6,Button 7,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>    
+        <addressScheme>1,2,3,4,5,6,7,9,10,11,12,13,14,15</addressScheme>
+        <icon>assets/icons/125.png</icon>    
+        <hexId>125102</hexId>        
+    </inputdevice>
+    <inputdevice>
+        <name>Button 126</name>
+        <points>Button 1,Button 2,Button 3,Button 4,Button 5,Button 6,Button 7,Button 8,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,6,7,8,9,10,11,12,13,14,15</addressScheme>        
+        <icon>assets/icons/126.png</icon>
+        <hexId>126802</hexId>            
+    </inputdevice>
+    <inputdevice>
+        <name>Button 131</name>
+        <points>Button 1,Button 2,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,4,9,10,11,12,13,14,15</addressScheme>
+        <icon>assets/icons/131.png</icon>
+        <hexId>131202</hexId>            
+    </inputdevice>
+    <inputdevice>
+        <name>Button 132</name>
+        <points>Button 1,Button 2,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,4,9,10,11,12,13,14,15</addressScheme>        
+        <icon>assets/icons/131.png</icon>
+        <hexId>132902</hexId>            
+    </inputdevice>
+    <inputdevice>
+        <name>Button 134</name>
+        <points>Button 1,Button 2,Button 3,Button 4,Button 5,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,9,10,11,12,13,14,15</addressScheme>        
+        <icon>assets/icons/134.png</icon>
+        <hexId>134302</hexId>            
+    </inputdevice>
+    <inputdevice>
+        <name>Button 135</name>
+        <points>Button 1,Button 2,Button 3,Button 4,Button 5,Button 6,Button 7,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>    
+        <addressScheme>1,2,3,4,5,6,7,9,10,11,12,13,14,15</addressScheme>
+        <icon>assets/icons/135.png</icon>
+        <hexId>135002</hexId>    
+    </inputdevice>
+    <inputdevice>
+        <name>Button 136</name>
+        <points>Button 1,Button 2,Button 3,Button 4,Button 5,Button 6,Button 7,Button 8,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,6,7,8,9,10,11,12,13,14,15</addressScheme>    
+        <icon>assets/icons/136.png</icon>
+        <hexId>136702</hexId>            
+    </inputdevice>
+    <inputdevice>
+        <name>Button 137</name>
+        <points>Button 1,Button 2,Button 3,Button 4,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,9,10,11,12,13,14,15</addressScheme>    
+        <icon>assets/icons/137.png</icon>
+        <hexId>137402</hexId>            
+    </inputdevice>
+    <inputdevice>
+        <name>Button 935</name>
+        <points>Button 1,Button 2,Button 3,Button 4,Button 5,Button 6,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,9,10,13,14,15,16,17,18,19</addressScheme>    
+        <icon>assets/icons/935.png</icon>
+        <hexId>935602</hexId>            
+    </inputdevice>
+    <inputdevice>
+        <name>Button 939</name>
+        <points>Button 1,Button 2,Button 3,Button 4,Button 5,Button 6,Button 7,Button 8,Button 9,Button 10,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,6,7,8,9,10,13,14,15,16,17,18,19</addressScheme>    
+        <icon>assets/icons/939.png</icon>
+        <hexId>939402</hexId>            
+    </inputdevice>
+    <inputdevice>
+        <name>Single Slider 110</name>
+        <points>Slider 1,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,3,4,5,6,7,8,9</addressScheme>        
+        <icon>assets/icons/110.png</icon>
+        <hexId>110702</hexId>            
+    </inputdevice>
+    <inputdevice>
+        <name>Dual Slider 111</name>
+        <points>Slider 1,Slider 2,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,6,7,8,9</addressScheme>
+        <icon>assets/icons/111.png</icon>
+        <hexId>111402</hexId>            
+    </inputdevice>
+    <inputdevice>
+        <name>Rotary 100</name>
+        <points>Push On/Off 1,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,7,8,9,10,11,12,13</addressScheme>
+        <icon>assets/icons/100.png</icon>
+        <hexId>100802</hexId>            
+    </inputdevice>
+    <inputdevice>
+        <name>Mini Input Unit 444</name>
+        <points>Input 1,Input 2,Input 3,Input 4</points>
+        <addressScheme>1,2,3,4</addressScheme>
+        <icon>assets/icons/444.png</icon>
+        <hexId>444302</hexId>            
+    </inputdevice>
+    <inputdevice>
+        <name>Switch Interface Unit 445</name>
+        <points>Input 1,Input 2,Input 3,Input 4</points>
+        <addressScheme>1,2,3,4</addressScheme>
+        <icon>assets/icons/444.png</icon>
+        <hexId>445002</hexId>   
+    </inputdevice>
+    <inputdevice>
+        <name>Analogue Input Unit 942</name>
+        <points>Numeric 1,Numeric 2,Numeric 3,Numeric 4,Input 1,Input 2,Input 3,Input 4,Input 5,Input 6,Input 7,Input 8</points>
+        <addressScheme>1,2,3,4,1,2,3,4,5,6,7,8</addressScheme>
+        <icon>assets/icons/942.png</icon>
+        <hexId>942402</hexId>            
+    </inputdevice>
+    <inputdevice>
+        <name>Ceiling PIR detector 311</name>
+        <points>OCCUPANCY</points>
+        <addressScheme>2</addressScheme>
+        <icon>assets/icons/sensor.png</icon> 
+        <hexId>311802</hexId>
+    </inputdevice>
+    <inputdevice>
+        <name>Multisensor 312</name>
+        <points>Push On/Off 1,OCCUPANCY,Light Sensor,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,5,7,8,9,10,17,18,19</addressScheme>
+        <icon>assets/icons/sensor.png</icon>    
+        <hexId>312502</hexId>
+    </inputdevice>
+    <inputdevice>
+        <name>Microwave detector 313</name>
+        <points>OCCUPANCY</points>
+        <addressScheme>2</addressScheme>
+        <icon>assets/icons/sensor.png</icon> 
+        <hexId>313202</hexId>
+    </inputdevice>
+    <inputdevice>
+        <name>Tilting microwave detector 314</name>
+        <points>OCCUPANCY</points>
+        <addressScheme>2</addressScheme>
+        <icon>assets/icons/sensor.png</icon> 
+        <hexId>314902</hexId>
+    </inputdevice>
+    <inputdevice>
+        <name>Multisensor 315</name>
+        <points>Push On/Off 1,OCCUPANCY,Light Sensor,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,5,7,8,9,10,17,18,19</addressScheme>
+        <icon>assets/icons/315.png</icon>
+        <hexId>315602</hexId>            
+    </inputdevice>
+    <inputdevice>
+        <name>High bay detector 317</name>
+        <points>OCCUPANCY</points>
+        <addressScheme>2</addressScheme>
+        <icon>assets/icons/sensor.png</icon> 
+        <hexId>317002</hexId>
+    </inputdevice>
+    <inputdevice>
+      <name>Wall Mounted PIR 318</name>
+      <points>Push On/Off 1,OCCUPANCY,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+      <addressScheme>1,2,7,8,9,10,17,18,19</addressScheme>
+      <icon>assets/icons/sensor.png</icon> 
+      <hexId>318702</hexId>
+    </inputdevice>    
+    <inputdevice>
+      <name>External Light Sensor 329</name>
+      <points>Light Sensor</points>
+      <addressScheme>5</addressScheme>
+      <icon>assets/icons/sensor.png</icon> 
+      <hexId>329302</hexId>
+    </inputdevice>    
+    <inputdevice>
+        <name>441 (Sensor Interface)</name>
+        <points>OCCUPANCY</points>
+        <addressScheme>2</addressScheme>
+        <icon>assets/icons/444.png</icon>
+        <hexId>441202</hexId>            
+    </inputdevice>
+    <inputdevice>
+        <name>170 (IR receiver)</name>
+        <points>IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>7,8,9,10,11,12,13</addressScheme>
+        <icon>assets/icons/170.png</icon>    
+        <hexId>170102</hexId>            
+    </inputdevice>    
+    
+ <!-- Nov 2016 Additions Start -->
+    <inputdevice>
+          <name>High bay spot detector 319</name>
+          <points>OCCUPANCY</points>
+          <addressScheme>2</addressScheme>
+          <icon>assets/icons/sensor.png</icon> 
+          <hexId>319402</hexId>
+     </inputdevice>
+ <!-- Nov 2016 Additions End -->
+ <!-- Oct 2017 Additions Start -->
+    <inputdevice>
+        <name>ILLUSTRIS 290</name>
+        <points>Button 1</points>
+        <addressScheme>1</addressScheme> 
+        <icon>assets/icons/110.png</icon>
+        <hexId>2290402</hexId> 
+    </inputdevice>
+
+    <inputdevice>
+        <name>ILLUSTRIS 290</name>
+        <points>Button 1</points>
+        <addressScheme>1</addressScheme> 
+        <icon>assets/icons/110.png</icon>
+        <hexId>1290502</hexId> 
+    </inputdevice>
+
+    <inputdevice>
+        <name>ILLUSTRIS 193W</name>
+        <points>Button 1,Button 2,Button 3,Button 4</points>
+        <addressScheme>1,2,3,4</addressScheme> 
+        <icon>assets/icons/110.png</icon>
+        <hexId>22193202</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>ILLUSTRIS 193B</name>
+        <points>Button 1,Button 2,Button 3,Button 4</points>
+        <addressScheme>1,2,3,4</addressScheme> 
+        <icon>assets/icons/110.png</icon>
+        <hexId>21193302</hexId> 
+    </inputdevice>
+
+    <inputdevice>
+        <name>ILLUSTRIS 193W</name>
+        <points>Button 1,Button 2,Button 3,Button 4</points>
+        <addressScheme>1,2,3,4</addressScheme> 
+        <icon>assets/icons/110.png</icon>
+        <hexId>12193502</hexId> 
+    </inputdevice>
+
+    <inputdevice>
+        <name>ILLUSTRIS 193B</name>
+        <points>Button 1,Button 2,Button 3,Button 4</points>
+        <addressScheme>1,2,3,4</addressScheme> 
+        <icon>assets/icons/110.png</icon>
+        <hexId>11193602</hexId> 
+    </inputdevice>
+
+    <inputdevice>
+        <name>ILLUSTRIS 192W</name>
+        <points>Button 1,Button 2,Button 3,Button 4</points>
+        <addressScheme>1,2,3,4</addressScheme> 
+        <icon>assets/icons/110.png</icon>
+        <hexId>22192502</hexId> 
+    </inputdevice>
+
+    <inputdevice>
+        <name>ILLUSTRIS 192B</name>
+        <points>Button 1,Button 2,Button 3,Button 4</points>
+        <addressScheme>1,2,3,4</addressScheme> 
+        <icon>assets/icons/110.png</icon>
+        <hexId>11193602</hexId> 
+    </inputdevice>
+
+    <inputdevice>
+        <name>ILLUSTRIS 192B</name>
+        <points>Button 1,Button 2,Button 3,Button 4</points>
+        <addressScheme>1,2,3,4</addressScheme>
+        <icon>assets/icons/110.png</icon>
+        <hexId>21192602</hexId>
+     </inputdevice>
+
+    <inputdevice>
+        <name>ILLUSTRIS 192W</name>
+        <points>Button 1,Button 2,Button 3,Button 4</points>
+        <addressScheme>1,2,3,4</addressScheme>
+         <icon>assets/icons/110.png</icon>
+        <hexId>12192802</hexId>
+     </inputdevice>
+
+    <inputdevice>
+        <name>ILLUSTRIS 192B</name>
+        <points>Button 1,Button 2,Button 3,Button 4</points>
+        <addressScheme>1,2,3,4</addressScheme> 
+        <icon>assets/icons/110.png</icon>
+        <hexId>11192902</hexId> 
+    </inputdevice>
+
+    <inputdevice>
+        <name>ILLUSTRIS 193B</name>
+        <points>Button 1,Button 2,Button 3,Button 4</points>
+        <addressScheme>1,2,3,4</addressScheme>
+        <icon>assets/icons/110.png</icon>
+        <hexId>11193602</hexId> 
+    </inputdevice>
+
+    <inputdevice>
+        <name>ILLUSTRIS 191W</name>
+        <points>Button 1,Button 2,Button 3,Button 4</points>
+        <addressScheme>1,2,3,4</addressScheme>
+        <icon>assets/icons/110.png</icon>
+        <hexId>22191802</hexId> 
+    </inputdevice>
+
+    <inputdevice>
+        <name>ILLUSTRIS 191B</name>
+        <points>Button 1,Button 2,Button 3,Button 4</points>
+        <addressScheme>1,2,3,4</addressScheme> 
+        <icon>assets/icons/110.png</icon>
+        <hexId>21191902</hexId> 
+    </inputdevice>
+
+    <inputdevice>
+        <name>ILLUSTRIS 191W</name>
+        <points>Button 1,Button 2,Button 3,Button 4</points>
+        <addressScheme>1,2,3,4</addressScheme> 
+        <icon>assets/icons/110.png</icon>
+        <hexId>12191102</hexId> 
+    </inputdevice>
+
+    <inputdevice>
+        <name>ILLUSTRIS 191B</name>
+        <points>Button 1,Button 2,Button 3,Button 4</points>
+        <addressScheme>1,2,3,4</addressScheme> 
+        <icon>assets/icons/110.png</icon>
+        <hexId>11191202</hexId> 
+    </inputdevice>
+    
+    <inputdevice>
+        <name>Ceiling PIR detector 320</name>
+        <points>OCCUPANCY</points>
+        <addressScheme>2</addressScheme>
+        <icon>assets/icons/sensor.png</icon> 
+        <hexId>320002</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Multisensor 321</name>
+        <points>OCCUPANCY,Light Sensor</points>
+        <addressScheme>2,5</addressScheme>
+        <icon>assets/icons/sensor.png</icon> 
+        <hexId>321702</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>High bay detector 322</name>
+        <points>OCCUPANCY,Light Sensor</points>
+        <addressScheme>2,5</addressScheme>
+        <icon>assets/icons/sensor.png</icon> 
+        <hexId>322402</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>EnOcean Gateway</name>
+        <points></points>
+        <addressScheme>1</addressScheme>
+        <icon>assets/icons/sensor.png</icon> 
+        <hexId>434402</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>EnOcean Button Panel</name>
+        <points>Button 1,Button 2,Button 3,Button 4</points>
+        <addressScheme>1,2,3,4</addressScheme>
+        <icon>assets/icons/137.png</icon>
+        <hexId>49211002</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>EnOcean Button Panel</name>
+        <points>Button 1,Button 2,Button 3,Button 4</points>
+        <addressScheme>1,2,3,4</addressScheme> 
+        <icon>assets/icons/137.png</icon>
+        <hexId>49210302</hexId>
+    </inputdevice>
+
+ <!-- Oct 2017 Additions End -->
+
+ <!-- Feb 2021 Addition Start  -->
+
+    <inputdevice>
+        <name>DALI-2 Control Device</name>
+        <points></points>
+        <addressScheme></addressScheme>
+        <icon>assets/icons/Control-Device.png</icon>
+        <hexId>80000001</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Button 131D2</name>
+        <points>Button 1,Button 2,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,6,7,8,9</addressScheme>
+        <icon>assets/icons/131.png</icon>
+        <hexId>80131801</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Button 131BD2</name>
+        <points>Button 1,Button 2,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,6,7,8,9</addressScheme>
+        <icon>assets/icons/131.png</icon>
+        <hexId>81131701</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Button 131WD2</name>
+        <points>Button 1,Button 2,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,6,7,8,9</addressScheme>
+        <icon>assets/icons/131.png</icon>
+        <hexId>82131601</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Button 132D</name>
+        <points>Button 1,Button 2,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,6,7,8,9</addressScheme>
+        <icon>assets/icons/131.png</icon>
+        <hexId>80132501</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Button 132BD</name>
+        <points>Button 1,Button 2,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,6,7,8,9</addressScheme>
+        <icon>assets/icons/131.png</icon>
+        <hexId>81132401</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Button 132WD</name>
+        <points>Button 1,Button 2,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,6,7,8,9</addressScheme>
+        <icon>assets/icons/131.png</icon>
+        <hexId>82132301</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Button 134D2</name>
+        <points>Button 1,Button 2,Button 3,Button 4,Button 5,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,6,7,8,9,10,11,12</addressScheme>
+        <icon>assets/icons/134.png</icon>
+        <hexId>80134901</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Button 134BD2</name>
+        <points>Button 1,Button 2,Button 3,Button 4,Button 5,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,6,7,8,9,10,11,12</addressScheme>
+        <icon>assets/icons/134.png</icon>
+        <hexId>81134801</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Button 134WD2</name>
+        <points>Button 1,Button 2,Button 3,Button 4,Button 5,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,6,7,8,9,10,11,12</addressScheme>
+        <icon>assets/icons/134.png</icon>
+        <hexId>82134701</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Button 135D2</name>
+        <points>Button 1,Button 2,Button 3,Button 4,Button 5,Button 6,Button 7,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,6,7,8,9,10,11,12,13,14</addressScheme>
+        <icon>assets/icons/135.png</icon>
+        <hexId>80135601</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Button 135BD2</name>
+        <points>Button 1,Button 2,Button 3,Button 4,Button 5,Button 6,Button 7,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,6,7,8,9,10,11,12,13,14</addressScheme>
+        <icon>assets/icons/135.png</icon>
+        <hexId>81135501</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Button 135WD2</name>
+        <points>Button 1,Button 2,Button 3,Button 4,Button 5,Button 6,Button 7,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,6,7,8,9,10,11,12,13,14</addressScheme>
+        <icon>assets/icons/135.png</icon>
+        <hexId>82135401</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Button 136D2</name>
+        <points>Button 1,Button 2,Button 3,Button 4,Button 5,Button 6,Button 7,Button 8,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,6,7,8,9,10,11,12,13,14,15</addressScheme>
+        <icon>assets/icons/135.png</icon>
+        <hexId>80136301</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Button 136BD2</name>
+        <points>Button 1,Button 2,Button 3,Button 4,Button 5,Button 6,Button 7,Button 8,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,6,7,8,9,10,11,12,13,14,15</addressScheme>
+        <icon>assets/icons/135.png</icon>
+        <hexId>81136201</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Button 136WD2</name>
+        <points>Button 1,Button 2,Button 3,Button 4,Button 5,Button 6,Button 7,Button 8,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,6,7,8,9,10,11,12,13,14,15</addressScheme>
+        <icon>assets/icons/135.png</icon>
+        <hexId>82136101</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Button 137D2</name>
+        <points>Button 1,Button 2,Button 3,Button 4,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,6,7,8,9,10,11</addressScheme>
+        <icon>assets/icons/137.png</icon>
+        <hexId>80137001</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Button 137BD2</name>
+        <points>Button 1,Button 2,Button 3,Button 4,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,6,7,8,9,10,11</addressScheme>
+        <icon>assets/icons/137.png</icon>
+        <hexId>81137901</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Button 137D2</name>
+        <points>Button 1,Button 2,Button 3,Button 4,IR 1,IR 2,IR 3,IR 4,IR 5,IR 6,IR 7</points>
+        <addressScheme>1,2,3,4,5,6,7,8,9,10,11</addressScheme>
+        <icon>assets/icons/137.png</icon>
+        <hexId>82137801</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Button 142</name>
+        <points>Button 1,Button 2</points>
+        <addressScheme>1,2</addressScheme>
+        <icon>assets/icons/142WD2.png</icon>
+        <hexId>80142401</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Button 144</name>
+        <points>Button 1,Button 2, Button 3, Button 4</points>
+        <addressScheme>1,2,3,4</addressScheme>
+        <icon>assets/icons/144WD2.png</icon>
+        <hexId>80144801</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Button 146</name>
+        <points>Button 1,Button 2, Button 3, Button 4, Button 5, Button 6</points>
+        <addressScheme>1,2,3,4,5,6</addressScheme>
+        <icon>assets/icons/146WD2.png</icon>
+        <hexId>80146201</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Button 148</name>
+        <points>Button 1,Button 2, Button 3, Button 4, Button 5, Button 6, Button 7, Button 8</points>
+        <addressScheme>1,2,3,4,5,6,7,8</addressScheme>
+        <icon>assets/icons/148WD2.png</icon>
+        <hexId>80148601</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Ceiling PIR detector 320D2</name>
+        <points>OCCUPANCY</points>
+        <addressScheme>1</addressScheme>
+        <icon>assets/icons/sensor.png</icon>
+        <hexId>80320601</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Ceiling PIR detector 320D2</name>
+        <points>OCCUPANCY</points>
+        <addressScheme>1</addressScheme>
+        <icon>assets/icons/sensor.png</icon> 
+        <hexId>81320501</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Ceiling PIR detector 320D2</name>
+        <points>OCCUPANCY</points>
+        <addressScheme>1</addressScheme>
+        <icon>assets/icons/sensor.png</icon> 
+        <hexId>82320401</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Ceiling PIR detector 320D2</name>
+        <points>OCCUPANCY</points>
+        <addressScheme>1</addressScheme>
+        <icon>assets/icons/sensor.png</icon> 
+        <hexId>83320301</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Multisensor 321D2</name>
+        <points>OCCUPANCY,Light Sensor</points>
+        <addressScheme>1,2</addressScheme>
+        <icon>assets/icons/sensor.png</icon> 
+        <hexId>80321301</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Multisensor 321D2</name>
+        <points>OCCUPANCY,Light Sensor</points>
+        <addressScheme>1,2</addressScheme>
+        <icon>assets/icons/sensor.png</icon> 
+        <hexId>81321201</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Multisensor 321D2</name>
+        <points>OCCUPANCY,Light Sensor</points>
+        <addressScheme>1,2</addressScheme>
+        <icon>assets/icons/sensor.png</icon> 
+        <hexId>82321101</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Multisensor 321D2</name>
+        <points>OCCUPANCY,Light Sensor</points>
+        <addressScheme>1,2</addressScheme>
+        <icon>assets/icons/sensor.png</icon> 
+        <hexId>83321001</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>High bay detector 322D2</name>
+        <points>OCCUPANCY,Light Sensor</points>
+        <addressScheme>1,2</addressScheme>
+        <icon>assets/icons/sensor.png</icon> 
+        <hexId>80322001</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>High bay detector 322D2</name>
+        <points>OCCUPANCY,Light Sensor</points>
+        <addressScheme>1,2</addressScheme>
+        <icon>assets/icons/sensor.png</icon> 
+        <hexId>81322901</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>441D2 (Sensor Interface)</name>
+        <points>OCCUPANCY</points>
+        <addressScheme>1</addressScheme>
+        <icon>assets/icons/441.png</icon> 
+        <hexId>80441801</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Mini Input Unit 444D2</name>
+        <points>Input 1,Input 2,Input 3,Input 4</points>
+        <addressScheme>1,2,3,4</addressScheme>
+        <icon>assets/icons/444.png</icon> 
+        <hexId>80444901</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Steinel Multisensor IR Quattro HD</name>
+        <points>Light Sensor,OCCUPANCY</points>
+        <addressScheme>1,2</addressScheme>
+        <icon>assets/icons/IR-Quattro-HD.png</icon>
+        <hexId>5749701</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Steinel Multisensor HF 360</name>
+        <points>Light Sensor,OCCUPANCY</points>
+        <addressScheme>1,2</addressScheme>
+        <icon>assets/icons/HF-360.png</icon>
+        <hexId>5748001</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Steinel Multisensor Dual HF</name>
+        <points>Light Sensor,OCCUPANCY</points>
+        <addressScheme>1,2</addressScheme>
+        <icon>assets/icons/Dual-HF.png</icon>
+        <hexId>5745901</hexId>
+    </inputdevice>
+
+    <inputdevice>
+        <name>Steinel Multisensor IS 3360 MX</name>
+        <points>Light Sensor,OCCUPANCY</points>
+        <addressScheme>1,2</addressScheme>
+        <icon>assets/icons/IS-3360-MX.png</icon>
+        <hexId>6624601</hexId>
+    </inputdevice>
+
+<!--    <inputdevice>-->
+<!--        <name>Steinel Multisensor IS 3360 MX</name>-->
+<!--        <points>Light Sensor,OCCUPANCY</points>-->
+<!--        <addressScheme>1,2</addressScheme>-->
+<!--        <icon></icon> -->
+<!--        <hexId></hexId>-->
+<!--    </inputdevice>-->
+
+    <inputdevice>
+        <name>Steinel Multisensor IS 345 MX</name>
+        <points>Light Sensor,OCCUPANCY</points>
+        <addressScheme>1,2</addressScheme>
+        <icon>assets/icons/IS-345-MX.png</icon>
+        <hexId>6626001</hexId>
+    </inputdevice>
+
+<!--    <inputdevice>-->
+<!--        <name>Steinel Multisensor IS 345 MX</name>-->
+<!--        <points>Light Sensor,OCCUPANCY</points>-->
+<!--        <addressScheme>1,2</addressScheme>-->
+<!--        <icon></icon> -->
+<!--        <hexId></hexId>-->
+<!--    </inputdevice>-->
+
+ <!-- Feb 2021 Addition End  -->
+</helvar>
